@@ -3,10 +3,11 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { connect } from "react-redux";
 
 // Screens
-import { LOGIN, SIGNUP, CONDITIONS } from "../screenNames";
+import { LOGIN, SIGNUP, CONDITIONS, MEDICATIONS } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
 import Conditions from "../../Components/Conditions/ConditionsList";
+import PatientMedications from "../../Components/PatientMedications/MedicationList";
 // Config
 import { stackScreenOptions } from "../options";
 
@@ -19,15 +20,22 @@ const mapStateToProps = ({ user }) => ({
 export default connect(mapStateToProps)(function UserStack({ user }) {
   return (
     <Navigator
-      initialRouteName={user ? CONDITIONS : LOGIN}
+      initialRouteName={user ? MEDICATIONS : LOGIN}
       screenOptions={stackScreenOptions}
     >
       {user ? (
+        <>
+        <Screen
+            name={MEDICATIONS}
+            component={PatientMedications}
+            options={{ headerShown: false }}
+          />
         <Screen
           name={CONDITIONS}
           component={Conditions}
           options={{ headerShown: false }}
         />
+        </>
       ) : (
         <>
           <Screen
@@ -40,6 +48,7 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             component={Signup}
             options={{ headerShown: false }}
           />
+
         </>
       )}
     </Navigator>
