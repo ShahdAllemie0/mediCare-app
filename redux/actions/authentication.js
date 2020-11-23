@@ -7,6 +7,8 @@ import { fetchPatientMedications } from "./medications"
 
 import instance from "./instance";
 
+import { fetchHistory } from "./history";
+
 const setCurrentUser = (token) => async (dispatch) => {
   console.log("setCurrentUser");
 
@@ -15,6 +17,7 @@ const setCurrentUser = (token) => async (dispatch) => {
     type: SET_CURRENT_USER,
     payload: token ? decode(token) : null,
   });
+  dispatch(fetchHistory())
   dispatch(fetchPatientMedications())
 };
 

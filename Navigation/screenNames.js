@@ -8,3 +8,6 @@ export const CONDITIONS = "Conditions";
 
 // Medications
 export const MEDICATIONS = "Medications";
+
+// History
+export const HISTORY = "History";
