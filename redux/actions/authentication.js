@@ -3,6 +3,8 @@ import decode from "jwt-decode";
 
 import { SET_CURRENT_USER } from "./types";
 
+import { fetchPatientMedications } from "./medications"
+
 import instance from "./instance";
 
 const setCurrentUser = (token) => async (dispatch) => {
@@ -13,6 +15,7 @@ const setCurrentUser = (token) => async (dispatch) => {
     type: SET_CURRENT_USER,
     payload: token ? decode(token) : null,
   });
+  dispatch(fetchPatientMedications())
 };
 
 const setAuthToken = async (token) => {
