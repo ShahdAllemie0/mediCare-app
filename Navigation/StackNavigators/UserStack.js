@@ -7,7 +7,7 @@ import { LOGIN, SIGNUP, CONDITIONS, MEDICATIONS } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
 import Conditions from "../../Components/Conditions/ConditionsList";
-import PatientMedications from "../../Components/PatientMedications";
+import PatientMedications from "../../Components/PatientMedications/MedicationList";
 // Config
 import { stackScreenOptions } from "../options";
 
