@@ -1,2 +1,8 @@
 //auth
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
+
+// CONDITIONS
+export const CONDITIONS = "CONDITIONS";
+
+// MEDICATIONS
+export const MEDICATIONS = "MEDICATIONS";
