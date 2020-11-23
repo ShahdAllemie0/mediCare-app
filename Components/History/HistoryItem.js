@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 
-import { ListItem, Left, Right, Content, Card, CardItem, Text } from "native-base";
+import { ListItem, Left, Right, Content, Card, CardItem, Text, Body } from "native-base";
 
 // import styles from "./styles";
 
@@ -14,11 +14,11 @@ const HistoryItem = ({ history }) => (
             <Left>
               <Body>
                 <Text style={{ color: "black", fontSize: 20, fontWeight: "bold"}}>
-                  history.history.medication.drug
+                  {history.medication.drug}
                 </Text>
-                <Text>{history.history.medication.trade_name}</Text>
+                <Text>{history.medication.trade_name}</Text>
                 <Right>
-                  <Text>{history.history.duration} weeks</Text>
+                  <Text>{history.duration} weeks</Text>
                 </Right>
               </Body>
             </Left>
@@ -28,3 +28,5 @@ const HistoryItem = ({ history }) => (
     </ListItem>
   </>
 )
+
+export default HistoryItem;
