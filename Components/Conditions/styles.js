@@ -1,51 +1,57 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  text: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-    opacity: 1,
+  authButton: {
+    alignSelf: "stretch",
+    alignItems: "center",
+    padding: 20,
+    backgroundColor: "rgb(20,60,100)",
+    marginTop: 30,
   },
-  divider: {
-    borderBottomColor: "black",
+  authButtonText: {
+    color: "#FCFDFF",
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  authContainer: {
+    flex: 1,
+    alignSelf: "stretch",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#FCFDFF",
+    paddingRight: 60,
+    paddingLeft: 60,
+  },
+  authOther: {
+    color: "rgb(20,60,100)",
+    marginTop: 15,
+  },
+  authTextInput: {
+    alignSelf: "stretch",
+    textAlign: "left",
+    height: 40,
+    marginBottom: 30,
+    color: "rgb(20,60,100)",
+    borderBottomColor: "rgb(20,60,100)",
     borderBottomWidth: 1,
   },
-  overlay: {
-    flex: 1,
-    position: "absolute",
-    left: 0,
-    right: 0,
-
-    opacity: 0.5,
-    backgroundColor: "black",
-    height: "100%",
-    width: "100%",
+  authTitle: {
+    color: "rgb(20,60,100)",
+    fontSize: 24,
+    marginBottom: 20,
+    borderBottomColor: "rgb(20,60,100)",
   },
-  listitem: {
-    backgroundColor: "transparent",
-    borderTopWidth: 0,
-    borderRightWidth: 0,
-    borderLeftWidth: 0,
-    borderBottomWidth: 0,
-    height: 180,
-    flexDirection: "row",
+  profileImage: {
+    height: 75,
+    width: 150,
+    flex: 0.5,
+    marginBottom: 10,
   },
-  transparent: {
-    backgroundColor: "transparent",
-    borderTopWidth: 0,
-    borderRightWidth: 0,
-    borderLeftWidth: 0,
-    borderBottomWidth: 0,
-    flexDirection: "row",
-  },
-  thumbnail: {
-    backgroundColor: "white",
-    opacity: 1,
-  },
-  background: {
-    width: null,
-    flex: 1,
+  profiletext: {
+    textAlign: "left",
+    color: "rgb(20,60,100)",
+    fontSize: 16,
   },
 });
+
 export default styles;
