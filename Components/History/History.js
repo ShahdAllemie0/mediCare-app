@@ -21,8 +21,7 @@ const HistoryList = ({ history, loading, navigation }) => {
 };
 
 const mapStateToProps = (state) => ({
-  history: state.history,
-  loading: !history.length
+  history: state.history.history,
 });
 
 export default connect(mapStateToProps)(HistoryList);

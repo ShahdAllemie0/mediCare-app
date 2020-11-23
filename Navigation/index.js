@@ -2,9 +2,8 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Screens
-import { USER, HISTORY } from "./screenNames";
+import { USER } from "./screenNames";
 import UserStack from "./StackNavigators/UserStack";
-import HistoryStack from "./StackNavigators/HistoryStack";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -19,7 +18,6 @@ export default function RootTabNavigator() {
       screenOptions={tabScreenOptions}
     >
       <Screen name={USER} component={UserStack} />
-      <Screen name={HISTORY} component={HistoryStack} />
     </Navigator>
   );
 }
