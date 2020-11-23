@@ -22,6 +22,7 @@ const store = createStore(
 store.dispatch(checkForToken());
 store.dispatch(fetchConditions());
 store.dispatch(fetchMedications());
+store.dispatch(fetchHistory());
 store.dispatch(fetchUserConditions());
 
 export default store;

@@ -3,12 +3,20 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { connect } from "react-redux";
 
 // Screens
-import { LOGIN, SIGNUP, CONDITIONS, MEDICATIONS, HISTORY } from "../screenNames";
+import {
+  LOGIN,
+  SIGNUP,
+  CONDITIONS,
+  MEDICATIONS,
+  HISTORY,
+  USERCONDITIONS,
+} from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
 import Conditions from "../../Components/Conditions/ConditionsList";
 import PatientMedications from "../../Components/PatientMedications/MedicationList";
-import History from "../../Components/History/History.js"
+import History from "../../Components/History/History.js";
+import UserConditions from "../../Components/Conditions/ConditionsList";
 // Config
 import { stackScreenOptions } from "../options";
 
@@ -21,26 +29,31 @@ const mapStateToProps = ({ user }) => ({
 export default connect(mapStateToProps)(function UserStack({ user }) {
   return (
     <Navigator
-      initialRouteName={user ? HISTORY : LOGIN}
+      initialRouteName={user ? USERCONDITIONS : LOGIN}
       screenOptions={stackScreenOptions}
     >
       {user ? (
         <>
-        <Screen
-          name={HISTORY}
-          component={History}
-          options={{ headerShown: false }}
-        />
-        <Screen
+          <Screen
+            name={USERCONDITIONS}
+            component={UserConditions}
+            options={{ headerShown: false }}
+          />
+          <Screen
+            name={HISTORY}
+            component={History}
+            options={{ headerShown: false }}
+          />
+          <Screen
             name={MEDICATIONS}
             component={PatientMedications}
             options={{ headerShown: false }}
           />
-        <Screen
-          name={CONDITIONS}
-          component={Conditions}
-          options={{ headerShown: false }}
-        />
+          <Screen
+            name={CONDITIONS}
+            component={Conditions}
+            options={{ headerShown: false }}
+          />
         </>
       ) : (
         <>
@@ -54,7 +67,6 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             component={Signup}
             options={{ headerShown: false }}
           />
-
         </>
       )}
     </Navigator>
