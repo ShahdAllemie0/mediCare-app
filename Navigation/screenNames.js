@@ -5,6 +5,7 @@ export const SIGNUP = "Signup";
 
 // conditions
 export const CONDITIONS = "Conditions";
+export const USERCONDITIONS = "ConditionsList";
 
 // Medications
 export const MEDICATIONS = "Medications";
