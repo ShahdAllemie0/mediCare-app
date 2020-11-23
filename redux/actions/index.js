@@ -7,3 +7,6 @@ export * from "./userConditions";
 
 // medications
 export * from "./medications";
+
+// history
+export * from "./history";
