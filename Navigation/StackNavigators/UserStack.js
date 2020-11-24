@@ -42,12 +42,12 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name={HISTORY}
             component={History}
-            options={{ headerShown: false }}
+            options={{ title: "History" }}
           />
           <Screen
             name={MEDICATIONS}
             component={PatientMedications}
-            options={{ headerShown: false }}
+            options={{ title: "Medications" }}
           />
           <Screen
             name={CONDITIONS}

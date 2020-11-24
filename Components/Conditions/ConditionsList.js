@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // Screens
-import { CONDITIONS } from "../../Navigation/screenNames";
+import { MEDICATIONS, HISTORY } from "../../Navigation/screenNames";
 // Redux
 import { connect } from "react-redux";
 // Components
@@ -22,6 +22,7 @@ const ConditionsList = ({
   setUserConditions,
   userConditions,
   deleteUserConditions,
+  navigation,
 }) => {
   const conditionsList = conditions.conditions.map((condition) => {
     const [checked, setChecked] = useState(false);
@@ -56,12 +57,18 @@ const ConditionsList = ({
 
         {conditionsList}
 
-        {/* <Text
-          style={styles.authButton}
-          onPress={() => navigation.replace(HISTORY)}
+        <TouchableOpacity
+        style={styles.authButton}
+        onPress={() => navigation.navigate(HISTORY)}
         >
-          HISTORY
-        </Text> */}
+        <Text style={styles.authButtonText}>History</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.authButton}
+        onPress={() => navigation.navigate(MEDICATIONS)}
+        >
+        <Text style={styles.authButtonText}>Your Medications</Text>
+      </TouchableOpacity>
         <LogoutButton logout={logout} />
       </View>
     </>
