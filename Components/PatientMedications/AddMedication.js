@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 // Styling Components
 import { TextInput, TouchableOpacity } from "react-native";
-import { Text, Input, Item, Container, Content, Form, Picker, Icon } from "native-base";
+import { Text, Input, Item, Container, Content, Form, Picker, Icon, Label } from "native-base";
 import styles from "../Authentication/styles";
 import { connect } from "react-redux"
 // import { addMedication } from "../../redux/actions"
@@ -40,6 +40,8 @@ const AddMedication = ({ medications }) => {
       <Content>
         <Form>
           <Text style={styles.authTitle}>Add Medication</Text>
+          {/* choose default */}
+          <Label>Choose Medication</Label>
           <Item picker>
             <Picker
               mode="dropdown"
@@ -54,7 +56,8 @@ const AddMedication = ({ medications }) => {
               {options}
             </Picker>
           </Item>
-          {/* <Item>
+          <Label>Schedualing</Label>
+          <Item>
             <Input
               style={styles.authTextInput}
               placeholder="First name"
@@ -130,7 +133,7 @@ const AddMedication = ({ medications }) => {
               onChangeText={setAddressType}
               autoCapitalize="none"
             />
-          </Item> */}
+          </Item>
         </Form>
         <TouchableOpacity
           style={styles.authButton}
