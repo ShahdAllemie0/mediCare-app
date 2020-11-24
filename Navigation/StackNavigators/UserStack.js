@@ -11,6 +11,7 @@ import {
   HISTORY,
   USERCONDITIONS,
   CALENDAR,
+  ADD_MEDICATION,
 } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
@@ -20,6 +21,7 @@ import History from "../../Components/History/History.js";
 import Calendar from "../../Components/PatientMedicationsTracker/Calendar";
 import ConditionsList from "../../Components/Conditions/ConditionsList";
 import UserConditions from "../../Components/Conditions/UserConditions";
+import AddMedication from "../../Components/PatientMedications/AddMedication";
 // Config
 import { stackScreenOptions } from "../options";
 
@@ -46,6 +48,11 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             name={HISTORY}
             component={History}
             options={{ title: "History" }}
+          />
+          <Screen
+            name={ADD_MEDICATION}
+            component={AddMedication}
+            options={{ headerShown: false }}
           />
           <Screen
             name={MEDICATIONS}
