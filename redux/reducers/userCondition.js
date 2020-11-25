@@ -16,14 +16,13 @@ const reducer = (state = initialState, { type, payload }) => {
       };
 
     case SET_CONDITIONS:
-      console.log("red", payload);
       return {
         ...state,
         userConditions: payload,
       };
 
-    case SET_CURRENT_USER:
-      if (!payload) return initialState;
+    // case SET_CURRENT_USER:
+    //   if (!payload) return initialState;
 
     default:
       return state;
