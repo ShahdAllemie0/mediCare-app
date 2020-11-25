@@ -1,90 +1,60 @@
-import React, { useState } from "react";
+import React from "react";
 // Screens
-import { MEDICATIONS, HISTORY } from "../../Navigation/screenNames";
+import {
+  MEDICATIONS,
+  HISTORY,
+  USERCONDITIONS,
+} from "../../Navigation/screenNames";
 // Redux
 import { connect } from "react-redux";
 // Components
 import LogoutButton from "../Authentication/LogoutButton";
-import {
-  logout,
-  setUserConditions,
-  deleteUserConditions,
-} from "../../redux/actions";
-import { TextInput, TouchableOpacity, View } from "react-native";
-import { CheckBox } from "react-native-elements";
+import ConditionsItem from "./ConditionItem";
+import { logout } from "../../redux/actions";
+import { TouchableOpacity, View } from "react-native";
 import { Text } from "native-base";
 // Style
 import styles from "./styles";
 
-const ConditionsList = ({
-  logout,
-  conditions,
-  setUserConditions,
-  userConditions,
-  deleteUserConditions,
-  navigation,
-}) => {
-  const conditionsList = conditions.conditions.map((condition) => {
-    const [checked, setChecked] = useState(false);
-    const [condition_id, setConditionID] = useState(null);
-
-    const onClick = () => {
-      setChecked(!checked);
-      setConditionID(condition.id);
-      if (!checked) {
-        setUserConditions({ condition_id });
-      } else if (checked) {
-        deleteUserConditions({ condition_id });
-      }
-    };
-    return (
-      <>
-        <CheckBox
-          disabled={true}
-          title={condition.name}
-          checked={checked}
-          onIconPress={onClick}
-        />
-      </>
-    );
-  });
-
-  console.log(userConditions.conditions);
+const ConditionsList = ({ logout, conditions, navigation }) => {
+  const conditionsList = conditions.conditions.map((condition) => (
+    <ConditionsItem condition={condition} key={condition.id} />
+  ));
   return (
     <>
       <View style={styles.authContainer}>
-        <Text style={styles.authTitle}>Medical Conditions</Text>
+        <Text style={styles.authTitle}>Medical Conditions List:</Text>
 
         {conditionsList}
+        <TouchableOpacity
+          style={styles.authButton}
+          onPress={() => navigation.navigate(HISTORY)}
+        >
+          <Text style={styles.authButtonText}>History</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.authButton}
+          onPress={() => navigation.navigate(MEDICATIONS)}
+        >
+          <Text style={styles.authButtonText}>Your Medications</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity
-        style={styles.authButton}
-        onPress={() => navigation.navigate(HISTORY)}
+          style={styles.authButton}
+          onPress={() => navigation.navigate(USERCONDITIONS)}
         >
-        <Text style={styles.authButtonText}>History</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.authButton}
-        onPress={() => navigation.navigate(MEDICATIONS)}
-        >
-        <Text style={styles.authButtonText}>Your Medications</Text>
-      </TouchableOpacity>
-        <LogoutButton logout={logout} />
+          <Text style={styles.authButtonText}>Your Medical Record</Text>
+        </TouchableOpacity>
+        {/* <Text>{userConditions.userConditions.conditions[0].name}h</Text> */}
       </View>
+      <LogoutButton logout={logout} />
     </>
   );
 };
-const mapStateToProps = (state) => {
-  return {
-    conditions: state.conditions,
-    userConditions: state.userConditions,
-  };
-};
 
-const mapDispatchToProps = {
-  logout,
-  setUserConditions,
-  deleteUserConditions,
+const mapStateToProps = (state) => {
+  return { conditions: state.conditions };
 };
+const mapDispatchToProps = { logout };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConditionsList);
