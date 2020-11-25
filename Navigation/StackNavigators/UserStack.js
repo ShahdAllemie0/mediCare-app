@@ -14,11 +14,12 @@ import {
 } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
-import Conditions from "../../Components/Conditions/ConditionsList";
+// import Conditions from "../../Components/Conditions/ConditionsList";
 import PatientMedications from "../../Components/PatientMedications/MedicationList";
 import History from "../../Components/History/History.js";
-import UserConditions from "../../Components/Conditions/ConditionsList";
 import Calendar from "../../Components/PatientMedicationsTracker/Calendar";
+import ConditionsList from "../../Components/Conditions/ConditionsList";
+import UserConditions from "../../Components/Conditions/UserConditions";
 // Config
 import { stackScreenOptions } from "../options";
 
@@ -53,7 +54,7 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           />
           <Screen
             name={CONDITIONS}
-            component={Conditions}
+            component={ConditionsList}
             options={{ headerShown: false }}
           />
           <Screen

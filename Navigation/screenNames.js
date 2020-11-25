@@ -4,8 +4,8 @@ export const LOGIN = "Login";
 export const SIGNUP = "Signup";
 
 // conditions
-export const CONDITIONS = "Conditions";
-export const USERCONDITIONS = "ConditionsList";
+export const CONDITIONS = "ConditionsList";
+export const USERCONDITIONS = "UserConditions";
 
 // Medications
 export const MEDICATIONS = "Medications";
