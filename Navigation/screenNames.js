@@ -12,3 +12,5 @@ export const MEDICATIONS = "Medications";
 
 // History
 export const HISTORY = "History";
+
+export const CALENDAR = "Calendar";

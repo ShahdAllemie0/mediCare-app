@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // Screens
-import { MEDICATIONS, HISTORY } from "../../Navigation/screenNames";
+import { MEDICATIONS, HISTORY, CALENDAR } from "../../Navigation/screenNames";
 // Redux
 import { connect } from "react-redux";
 // Components
@@ -69,6 +69,14 @@ const ConditionsList = ({
         >
         <Text style={styles.authButtonText}>Your Medications</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.authButton}
+        onPress={() => navigation.navigate(CALENDAR)}
+        >
+        <Text style={styles.authButtonText}>Your Calendar</Text>
+      </TouchableOpacity>
+
         <LogoutButton logout={logout} />
       </View>
     </>
