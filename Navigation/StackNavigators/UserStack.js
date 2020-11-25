@@ -10,12 +10,14 @@ import {
   MEDICATIONS,
   HISTORY,
   USERCONDITIONS,
+  CALENDAR,
 } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
 // import Conditions from "../../Components/Conditions/ConditionsList";
 import PatientMedications from "../../Components/PatientMedications/MedicationList";
 import History from "../../Components/History/History.js";
+import Calendar from "../../Components/PatientMedicationsTracker/Calendar";
 import ConditionsList from "../../Components/Conditions/ConditionsList";
 import UserConditions from "../../Components/Conditions/UserConditions";
 // Config
@@ -53,6 +55,11 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name={CONDITIONS}
             component={ConditionsList}
+            options={{ headerShown: false }}
+          />
+          <Screen
+            name={CALENDAR}
+            component={Calendar}
             options={{ headerShown: false }}
           />
         </>
