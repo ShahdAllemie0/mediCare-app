@@ -2,23 +2,22 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Provider } from "react-redux";
 import { Container } from "native-base";
-import { StyleSheet, Text, View } from "react-native";
-
+import { StyleSheet } from "react-native";
+// Redux
 import store from "./redux";
-
 // Navigation
 import RootNavigator from "./Navigation";
 import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Container>
-          <RootNavigator />
-        </Container>
-      </NavigationContainer>
-    </Provider>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Container>
+            <RootNavigator />
+          </Container>
+        </NavigationContainer>
+      </Provider>
   );
 }
 
