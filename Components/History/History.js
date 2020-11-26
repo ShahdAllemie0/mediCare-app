@@ -5,8 +5,7 @@ import { connect } from "react-redux";
 import HistoryItem from "./HistoryItem";
 
 const HistoryList = ({ history, loading, navigation }) => {
-
-  const historyCards = history.map(thishistory => (
+  const historyCards = history.map((thishistory) => (
     <HistoryItem history={thishistory} key={thishistory.id} />
   ));
 
@@ -16,7 +15,6 @@ const HistoryList = ({ history, loading, navigation }) => {
         <List>{historyCards}</List>
       </Content>
     </Container>
-
   );
 };
 

@@ -5,7 +5,7 @@ import {
   MEDICATIONS,
   HISTORY,
   USERCONDITIONS,
-  CALENDAR
+  CALENDAR,
 } from "../../Navigation/screenNames";
 // Redux
 import { connect } from "react-redux";
@@ -43,18 +43,14 @@ const ConditionsList = ({ logout, conditions, navigation }) => {
 
         <TouchableOpacity
           style={styles.authButton}
+          onPress={() => navigation.navigate(CALENDAR)}
+        >
+          <Text style={styles.authButtonText}>Your Calendar</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.authButton}
           onPress={() => navigation.navigate(USERCONDITIONS)}
         >
-        <Text style={styles.authButtonText}>Your Medications</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.authButton}
-        onPress={() => navigation.navigate(CALENDAR)}
-        >
-        <Text style={styles.authButtonText}>Your Calendar</Text>
-      </TouchableOpacity>
-
           <Text style={styles.authButtonText}>Your Medical Record</Text>
         </TouchableOpacity>
         {/* <Text>{userConditions.userConditions.conditions[0].name}h</Text> */}
