@@ -1,31 +1,31 @@
 const daysObj = [
     {
         name: "Sunday",
-        value: "sun"
+        value: 0
     },
     {
         name: "Monday",
-        value: "mon"
+        value: 1
     },
     {
         name: "Tuesday",
-        value: "tue"
+        value: 2
     },
     {
         name: "Wednesday",
-        value: "wed"
+        value: 3
     },
     {
         name: "Thursday",
-        value: "thu"
+        value: 4
     },
     {
         name: "Friday",
-        value: "fri"
+        value: 5
     },
     {
         name: "Saturday",
-        value: "sat"
+        value: 6
     },
 
 ]

@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import { CheckBox } from "react-native-elements";
+import { Item } from "native-base";
 
-const DaysCheckbox = ({ day, setDays }) => {
+const DaysCheckbox = ({ day, setDays, days }) => {
       const [checked, setChecked] = useState(false);
-      const [days, setDays] = useState([]);
   
       const handlePress = () => {
         setChecked(!checked);
-        new_days = [day,...days]
-        setDays(day.value);
         if (!checked) {
-          
+          new_days = [day,...days]
+          setDays(new_days);
         } else if (checked) {
-          
+          new_days = days.filter(element => element !== day)
+          setDays(new_days)
         }
       };
       return (
-        <>
+        <Item>
           <CheckBox
             disabled={true}
             title={day.name}
             checked={checked}
             onIconPress={handlePress}
           />
-        </>
+        </Item>
       );
     };
 
