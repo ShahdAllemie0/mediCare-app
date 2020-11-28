@@ -13,12 +13,13 @@ import {
 import DoseItem from "./DoseItem";
 
 
-const DoseMedItem = ({ medication, day, navigation }) => {
+const DoseMedItem = ({ medication, day, date, navigation }) => {
 
   const [dayDoses, setDayDoses] = useState()
   const [dosesList, setDosesList] = useState()
   useEffect(() => {
-    if(day){
+    var end = new Date(medication.end)
+    if(day && +date <= +end){
       setDayDoses(medication.doses.filter(dose => dose.day == day))
     }
     if(dayDoses && dayDoses.length != 0){
