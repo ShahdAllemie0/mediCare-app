@@ -1,4 +1,4 @@
-import { MEDICATIONS, SET_PATIENT_MEDICATIONS } from "../actions/types";
+import { SET_MEDICATIONS, SET_PATIENT_MEDICATIONS } from "../actions/types";
 
 const initialState = {
   medications: [],
@@ -7,7 +7,7 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case MEDICATIONS:
+    case SET_MEDICATIONS:
       const medications = payload;
       return {
         ...state,

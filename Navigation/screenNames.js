@@ -9,6 +9,7 @@ export const USERCONDITIONS = "UserConditions";
 
 // Medications
 export const MEDICATIONS = "Medications";
+export const ADD_MEDICATION = "ADD_MEDICATION"
 
 // History
 export const HISTORY = "History";

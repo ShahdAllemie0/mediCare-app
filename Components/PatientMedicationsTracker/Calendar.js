@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import {
   List,
@@ -14,6 +14,46 @@ import {
 import DoseMedItem from "./DoseMedItem";
 
 const DosesList = ({ medications, navigation }) => {
+
+
+  var date = new Date()
+  var n = date.getDay();
+
+  useEffect(() => {
+    var dates = [];
+    dates[n] = date
+    for(var i = 0; i<=6; i++){
+      if(i < n){
+        var span = n-i;
+        dates[i] = new Date(date)
+        dates[i].setDate(dates[i].getDate() - span)
+      }
+      else if(i > n){
+        var span = i-n;
+        dates[i] = new Date(date)
+        dates[i].setDate(dates[i].getDate() + span)
+      }
+    }
+  },[date.getDate()])
+
+
+  // Create a list of this week's dates
+  var dates = [];
+  dates[n] = date
+  for(var i = 0; i<=6; i++){
+    if(i < n){
+      var span = n-i;
+      dates[i] = new Date(date)
+      dates[i].setDate(dates[i].getDate() - span)
+    }
+    else if(i > n){
+      var span = i-n;
+      dates[i] = new Date(date)
+      dates[i].setDate(dates[i].getDate() + span)
+    }
+  }
+
+
   const [medicationList, setMedicationList] = useState(
     medications.map((medication) => (
       <DoseMedItem
@@ -24,22 +64,15 @@ const DosesList = ({ medications, navigation }) => {
     ))
   );
 
-  // let medicationList = medications.map((medication) => (
-  //   <DoseMedItem key={medication.id} medication={medication} />
-  // ));
-
   const onClick = (day) => {
+    // alert(dates[day]);
     setMedicationList(
-      medications.map((medication) => (
-        <DoseMedItem
-          key={medication.id}
-          medication={medication}
-          day={day}
-          navigation={navigation}
-        />
-      ))
-    );
-  };
+
+      medications.map(medication => (
+        <DoseMedItem key={medication.id} medication={medication} day={day} date={dates[day]} navigation={navigation} />
+      )))
+  }
+
 
   return (
     <Container>
@@ -125,15 +158,9 @@ const DosesList = ({ medications, navigation }) => {
       <Content>
         <List>
           {medicationList}
-          {/*<ListItem>
-            <Button onPress={() => navigation.navigate("AddMedication")}><Text>Add new Medication</Text></Button>
-            <Button
-            onPress={() => alert("track & ignore doses, coming soon")}
-            >
-                <Text>...</Text>
-            </Button>
-          </ListItem>*/}
-        </List>
+
+          </List>
+
       </Content>
     </Container>
   );

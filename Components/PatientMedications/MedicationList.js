@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { List, Content, Button, Text, Container, ListItem } from "native-base";
+import { ADD_MEDICATION } from "../../Navigation/screenNames"
 
 // components
 import MedicationCard from "./MedicationItem";
@@ -17,9 +18,8 @@ const MedicationList = ({ medications, navigation }) => {
         <List>
           {medicationList}
           <ListItem>
-            {/* <Button onPress={() => navigation.navigate("AddMedication")}><Text>Add new Medication</Text></Button> */}
             <Button
-            onPress={() => alert("Add medication, coming soon")}
+            onPress={() => navigation.navigate(ADD_MEDICATION)}
             >
                 <Text>Add new Medication</Text>
             </Button>

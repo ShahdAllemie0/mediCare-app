@@ -1,12 +1,8 @@
 import { AsyncStorage } from "react-native";
 import decode from "jwt-decode";
-
 import { SET_CURRENT_USER } from "./types";
-
 import { fetchPatientMedications } from "./medications";
-
 import instance from "./instance";
-
 import { fetchHistory } from "./history";
 
 import { fetchUserConditions } from "./userConditions";
