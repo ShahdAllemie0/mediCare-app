@@ -12,6 +12,8 @@ import {
   USERCONDITIONS,
   CALENDAR,
   ADD_MEDICATION,
+  Edit_MEDICATION,
+  MEDICATIONS_INTERACTIONS,
 } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
@@ -22,6 +24,8 @@ import Calendar from "../../Components/PatientMedicationsTracker/Calendar";
 import ConditionsList from "../../Components/Conditions/ConditionsList";
 import UserConditions from "../../Components/Conditions/UserConditions";
 import AddMedication from "../../Components/PatientMedications/AddMedication";
+import EditMedication from "../../Components/PatientMedications/EditMedication";
+import MedicationInteractions from "../../Components/PatientMedications/MedicationInteractions";
 // Config
 import { stackScreenOptions } from "../options";
 
@@ -55,6 +59,11 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             options={{ headerShown: false }}
           />
           <Screen
+            name={Edit_MEDICATION}
+            component={EditMedication}
+            options={{ headerShown: false }}
+          />
+          <Screen
             name={MEDICATIONS}
             component={PatientMedications}
             options={{ title: "Medications" }}
@@ -67,6 +76,11 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name={CALENDAR}
             component={Calendar}
+            options={{ headerShown: false }}
+          />
+          <Screen
+            name={MEDICATIONS_INTERACTIONS}
+            component={MedicationInteractions}
             options={{ headerShown: false }}
           />
         </>

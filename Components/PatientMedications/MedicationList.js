@@ -9,7 +9,7 @@ import MedicationCard from "./MedicationItem";
 const MedicationList = ({ medications, navigation }) => {
   // send one item from list to display in card
   const medicationList = medications.map((medication) => (
-    <MedicationCard key={medication.id} medication={medication}/>
+    <MedicationCard key={medication.id} medication={medication} navigation={navigation}/>
   ));
 
   return (
