@@ -12,8 +12,6 @@ import { fetchHistory } from "./history";
 import { fetchUserConditions } from "./userConditions";
 
 const setCurrentUser = (token) => async (dispatch) => {
-  console.log("setCurrentUser");
-
   await setAuthToken(token);
   dispatch({
     type: SET_CURRENT_USER,
@@ -27,7 +25,6 @@ const setCurrentUser = (token) => async (dispatch) => {
 const setAuthToken = async (token) => {
   if (token) {
     await AsyncStorage.setItem("myToken", token);
-    console.log("setAuthToken");
 
     instance.defaults.headers.Authorization = `Bearer ${token}`;
   } else {

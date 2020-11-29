@@ -1,4 +1,5 @@
 import React from "react";
+import { TRACK } from "../../Navigation/screenNames";
 import {
   Header,
   Content,
@@ -10,12 +11,9 @@ import {
   ListItem,
 } from "native-base";
 
-const CalendarMedicationItem = ({ dose, navigation }) => {
+const DoseItem = ({ dose, navigation }) => {
   return (
-    <ListItem
-      button
-      onPress={() => alert("track, ignore dose coming soon")}
-    >
+    <ListItem button onPress={() => navigation.navigate(TRACK, { dose })}>
       <Content>
         <Card>
           <CardItem header>
@@ -35,4 +33,4 @@ const CalendarMedicationItem = ({ dose, navigation }) => {
   );
 };
 
-export default CalendarMedicationItem;
+export default DoseItem;

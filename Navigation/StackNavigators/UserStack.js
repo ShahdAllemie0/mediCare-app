@@ -11,6 +11,8 @@ import {
   HISTORY,
   USERCONDITIONS,
   CALENDAR,
+  DOSE,
+  TRACK,
 } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
@@ -20,6 +22,9 @@ import History from "../../Components/History/History.js";
 import Calendar from "../../Components/PatientMedicationsTracker/Calendar";
 import ConditionsList from "../../Components/Conditions/ConditionsList";
 import UserConditions from "../../Components/Conditions/UserConditions";
+import DoseItem from "../../Components/PatientMedicationsTracker/DoseItem";
+import DoseTrack from "../../Components/PatientMedicationsTracker/DoseTrack";
+
 // Config
 import { stackScreenOptions } from "../options";
 
@@ -60,6 +65,16 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name={CALENDAR}
             component={Calendar}
+            options={{ headerShown: false }}
+          />
+          <Screen
+            name={DOSE}
+            component={DoseItem}
+            options={{ headerShown: false }}
+          />
+          <Screen
+            name={TRACK}
+            component={DoseTrack}
             options={{ headerShown: false }}
           />
         </>

@@ -10,3 +10,5 @@ export * from "./medications";
 
 // history
 export * from "./history";
+
+export * from "./consumed";

@@ -5,16 +5,19 @@ import {
   logout,
   setUserConditions,
   deleteUserConditions,
+  fetchUserConditions,
 } from "../../redux/actions";
 const ConditionItem = ({
   condition,
   setUserConditions,
   userConditions,
   deleteUserConditions,
+  fetchUserConditions,
 }) => {
   const condition_id = condition.id;
   const [check, setCheck] = useState(false);
   useEffect(() => {
+    fetchUserConditions();
     let element = userConditions.userConditions.conditions.find(
       (e) => e.id == condition.id
     );
@@ -53,6 +56,7 @@ const mapDispatchToProps = {
   logout,
   setUserConditions,
   deleteUserConditions,
+  fetchUserConditions,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConditionItem);

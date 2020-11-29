@@ -7,6 +7,7 @@ import medications from "./medications";
 import userConditions from "./userCondition";
 
 import history from "./history";
+import consumed from "./consumed";
 
 const rootReducer = combineReducers({
   user,
@@ -14,7 +15,6 @@ const rootReducer = combineReducers({
   medications,
   userConditions,
   history,
-
 });
 
 export default rootReducer;
