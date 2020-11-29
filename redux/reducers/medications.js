@@ -1,8 +1,9 @@
-import { SET_MEDICATIONS, SET_PATIENT_MEDICATIONS } from "../actions/types";
+import { SET_MEDICATIONS, SET_PATIENT_MEDICATIONS, SET_MEDICATION_INTERACTIONS } from "../actions/types";
 
 const initialState = {
   medications: [],
   patientMedications: [],
+  medicationAndInteractions: {}
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -17,6 +18,12 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         patientMedications: payload,
+      };
+    case SET_MEDICATION_INTERACTIONS:
+      console.log("*****----- interactions from REDUCER ------***** ", payload, "*****----- END ------*****")
+      return {
+        ...state,
+        medicationAndInteractions: payload,
       };
     default:
       return state;

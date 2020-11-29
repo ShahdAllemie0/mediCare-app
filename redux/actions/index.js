@@ -8,6 +8,9 @@ export * from "./userConditions";
 // medications
 export * from "./medications";
 
+// doses
+export * from "./doses";
+
 // history
 export * from "./history";
 

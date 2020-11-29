@@ -9,13 +9,11 @@ import {
   Body,
   ListItem,
 } from "native-base";
-import { Edit_MEDICATION } from "../../Navigation/screenNames";
 
-const MedicationItem = ({ medication, navigation }) => {
+const InteractionItem = ({ medication }) => {
   return (
     <ListItem
       button
-      onPress={() => navigation.navigate(Edit_MEDICATION, {medication})}
     >
       <Content>
         <Card>
@@ -36,4 +34,4 @@ const MedicationItem = ({ medication, navigation }) => {
   );
 };
 
-export default MedicationItem;
+export default InteractionItem;
