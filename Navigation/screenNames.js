@@ -15,3 +15,7 @@ export const ADD_MEDICATION = "ADD_MEDICATION"
 export const HISTORY = "History";
 
 export const CALENDAR = "Calendar";
+
+export const DOSE = "DoseItem";
+
+export const TRACK = "DoseTrack";

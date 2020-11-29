@@ -13,6 +13,7 @@ import {
 import DoseItem from "./DoseItem";
 
 
+
 const DoseMedItem = ({ medication, day, date, navigation }) => {
 
   const [dayDoses, setDayDoses] = useState()
@@ -26,37 +27,43 @@ const DoseMedItem = ({ medication, day, date, navigation }) => {
       setDosesList(dayDoses.map((dose) => (
         <DoseItem key={dose.id} dose={dose} />
       )))
+
     }
-  },[medication,day])
-
-
-    if(dayDoses && dayDoses.length != 0){
-      return (
-        <ListItem
-          button
-          onPress={() => alert("update, delete medication coming soon")}
-        >
-          <Content>
-            <Card>
-              <CardItem header>
-                <Left>
-                  <Body>
-                    <Text
-                      style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
-                    >
-                      {medication.medication.drug}
-                    </Text>
-                    {dosesList}
-                  </Body>
-                </Left>
-              </CardItem>
-            </Card>
-          </Content>
-        </ListItem>
+    if (dayDoses && dayDoses.length != 0) {
+      setDosesList(
+        dayDoses.map((dose) => (
+          <DoseItem key={dose.id} dose={dose} navigation={navigation} />
+        ))
       );
     }
-    return null;
+  }, [medication, day]);
 
+  if (dayDoses && dayDoses.length != 0) {
+    return (
+      <ListItem
+        button
+        onPress={() => alert("update, delete medication coming soon")}
+      >
+        <Content>
+          <Card>
+            <CardItem header>
+              <Left>
+                <Body>
+                  <Text
+                    style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
+                  >
+                    {medication.medication.drug}
+                  </Text>
+                  {dosesList}
+                </Body>
+              </Left>
+            </CardItem>
+          </Card>
+        </Content>
+      </ListItem>
+    );
+  }
+  return null;
 };
 
 export default DoseMedItem;

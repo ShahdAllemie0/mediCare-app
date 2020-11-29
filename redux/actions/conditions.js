@@ -7,7 +7,7 @@ export const fetchConditions = () => async (dispatch) => {
     const res = await instance.get("/conditions/");
 
     const conditions = res.data;
-    console.log("conditions actions", conditions);
+
     dispatch({
       type: CONDITIONS,
       payload: conditions,
