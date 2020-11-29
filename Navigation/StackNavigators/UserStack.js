@@ -11,6 +11,8 @@ import {
   HISTORY,
   USERCONDITIONS,
   CALENDAR,
+  DOSE,
+  TRACK,
   ADD_MEDICATION,
   Edit_MEDICATION,
   MEDICATIONS_INTERACTIONS,
@@ -23,6 +25,8 @@ import History from "../../Components/History/History.js";
 import Calendar from "../../Components/PatientMedicationsTracker/Calendar";
 import ConditionsList from "../../Components/Conditions/ConditionsList";
 import UserConditions from "../../Components/Conditions/UserConditions";
+import DoseItem from "../../Components/PatientMedicationsTracker/DoseItem";
+import DoseTrack from "../../Components/PatientMedicationsTracker/DoseTrack";
 import AddMedication from "../../Components/PatientMedications/AddMedication";
 import EditMedication from "../../Components/PatientMedications/EditMedication";
 import MedicationInteractions from "../../Components/PatientMedications/MedicationInteractions";
@@ -81,6 +85,15 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name={MEDICATIONS_INTERACTIONS}
             component={MedicationInteractions}
+          />
+          <Screen
+            name={DOSE}
+            component={DoseItem}
+            options={{ headerShown: false }}
+          />
+          <Screen
+            name={TRACK}
+            component={DoseTrack}
             options={{ headerShown: false }}
           />
         </>

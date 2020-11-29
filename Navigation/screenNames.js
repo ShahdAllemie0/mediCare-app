@@ -17,3 +17,7 @@ export const MEDICATIONS_INTERACTIONS = "MEDICATIONS_INTERACTIONS"
 export const HISTORY = "History";
 
 export const CALENDAR = "Calendar";
+
+export const DOSE = "DoseItem";
+
+export const TRACK = "DoseTrack";

@@ -13,3 +13,5 @@ export * from "./doses";
 
 // history
 export * from "./history";
+
+export * from "./consumed";
