@@ -25,7 +25,12 @@ const UserConditions = ({
     userConditionsList = userConditions.userConditions.conditions.map(
       (condition) => {
         return (
-          <CheckBox disabled={true} title={condition.name} checked={true} />
+          <CheckBox
+            disabled={true}
+            title={condition.name}
+            checked={true}
+            key={condition.name + condition.id}
+          />
         );
       }
     );

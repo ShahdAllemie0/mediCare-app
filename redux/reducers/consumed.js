@@ -1,19 +1,19 @@
-// import { CONSUMED } from "../actions/types";
+import { CONSUMED } from "../actions/types";
 
-// const initialState = {
-//   consumed: [],
-// };
+const initialState = {
+  consumed: [],
+};
 
-// const reducer = (state = initialState, { type, payload }) => {
-//   switch (type) {
-//     case CONSUMED:
-//       return {
-//         consumed: payload,
-//       };
+const reducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case CONSUMED:
+      return {
+        consumed: payload,
+      };
 
-//     default:
-//       return state;
-//   }
-// };
+    default:
+      return state;
+  }
+};
 
-// export default reducer;
+export default reducer;
