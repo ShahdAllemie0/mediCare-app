@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { Button } from "react-native";
-import { connect } from "react-redux";
+import React from "react";
 import { Text } from "native-base";
-import { setConsumed } from "../../redux/actions";
+
 const CheckTime = ({ setConsumed, consumed, dose }) => {
   const consumed_date_time = new Date(consumed.date_time);
   const consumed_time = consumed_date_time.toLocaleTimeString("it-IT");
@@ -17,30 +15,6 @@ const CheckTime = ({ setConsumed, consumed, dose }) => {
   const today_mins = today_date_time.getMinutes();
   let dose_time = dose.time;
   dose_time = dose_time.slice(0, 2);
-  console.log(consumed_hours);
-  console.log(dose_time);
-  //   const time = d.toLocaleTimeString("it-IT");
-  //   console.log(today_time > d);
-  //   d = d.toString();
-  //   console.log(d);
-  //   console.log(d.getHours());
-
-  const [taken, setTaken] = useState(false);
-  const button = () => {
-    if (consumed.id == dose.id) {
-      return <></>;
-    } else {
-      <Button onPress={onClick} title={"Take it"} />;
-    }
-  };
-
-  const onClick = () => {
-    dose = dose.id;
-    if (!taken) {
-      setConsumed({ dose });
-      setTaken(true);
-    }
-  };
 
   return (
     <Text>
@@ -55,17 +29,10 @@ const CheckTime = ({ setConsumed, consumed, dose }) => {
           </Text>
         )
       ) : (
-        <Text style={{ color: "red", fontSize: 20, fontWeight: "bold" }}>
-          missed
-        </Text>
+        <Text style={{ color: "red", fontSize: 20, fontWeight: "bold" }}></Text>
       )}
-      {button}
     </Text>
   );
 };
 
-const mapDispatchToProps = {
-  setConsumed,
-};
-
-export default connect(null, mapDispatchToProps)(CheckTime);
+export default CheckTime;

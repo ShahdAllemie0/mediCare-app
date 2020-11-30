@@ -11,9 +11,12 @@ import {
   ListItem,
 } from "native-base";
 
-const DoseItem = ({ dose, navigation }) => {
+const DoseItem = ({ dose, navigation, medicationID }) => {
   return (
-    <ListItem button onPress={() => navigation.navigate(TRACK, { dose })}>
+    <ListItem
+      button
+      onPress={() => navigation.navigate(TRACK, { dose, medicationID })}
+    >
       <Content>
         <Card>
           <CardItem header>
