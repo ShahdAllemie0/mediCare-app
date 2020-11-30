@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "native-base";
 
-const CheckTime = ({ setConsumed, consumed, dose }) => {
+const CheckTime = ({ consumed, dose }) => {
   const consumed_date_time = new Date(consumed.date_time);
   const consumed_time = consumed_date_time.toLocaleTimeString("it-IT");
   const consumed_date = consumed_date_time.getDate();
@@ -14,7 +14,11 @@ const CheckTime = ({ setConsumed, consumed, dose }) => {
   const today_hours = today_date_time.getHours();
   const today_mins = today_date_time.getMinutes();
   let dose_time = dose.time;
+  let dose_mins = dose_time.slice(3, 5);
+
   dose_time = dose_time.slice(0, 2);
+  console.log(consumed_mins);
+  console.log(dose_mins);
 
   return (
     <Text>
@@ -23,6 +27,17 @@ const CheckTime = ({ setConsumed, consumed, dose }) => {
           <Text style={{ color: "green", fontSize: 20, fontWeight: "bold" }}>
             on time
           </Text>
+        ) : consumed_hours - dose_time == 1 ||
+          consumed_hours - dose_time == -1 ? (
+          consumed_mins - dose_mins < 60 || consumed_mins - dose_mins < -60 ? (
+            <Text style={{ color: "green", fontSize: 20, fontWeight: "bold" }}>
+              on time
+            </Text>
+          ) : (
+            <Text style={{ color: "orange", fontSize: 20, fontWeight: "bold" }}>
+              late ({parseInt(consumed_hours) - parseInt(dose_time)} hours)
+            </Text>
+          )
         ) : (
           <Text style={{ color: "orange", fontSize: 20, fontWeight: "bold" }}>
             late ({parseInt(consumed_hours) - parseInt(dose_time)} hours)
