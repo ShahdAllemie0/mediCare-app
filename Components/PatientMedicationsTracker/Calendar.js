@@ -17,22 +17,6 @@ const DosesList = ({ medications, navigation }) => {
   var date = new Date();
   var n = date.getDay();
 
-  useEffect(() => {
-    var dates = [];
-    dates[n] = date;
-    for (var i = 0; i <= 6; i++) {
-      if (i < n) {
-        var span = n - i;
-        dates[i] = new Date(date);
-        dates[i].setDate(dates[i].getDate() - span);
-      } else if (i > n) {
-        var span = i - n;
-        dates[i] = new Date(date);
-        dates[i].setDate(dates[i].getDate() + span);
-      }
-    }
-  }, [date.getDate()]);
-
   // Create a list of this week's dates
   var dates = [];
   dates[n] = date;
@@ -48,16 +32,18 @@ const DosesList = ({ medications, navigation }) => {
     }
   }
 
-  const [medicationList, setMedicationList] = useState(
-    medications.map((medication) => (
-      <DoseMedItem
-        key={medication.id}
-        medication={medication}
-        navigation={navigation}
-      />
-    ))
-  );
-
+  const [medicationList, setMedicationList] = useState();
+  useEffect(() => {
+    setMedicationList(
+      medications.map((medication) => (
+        <DoseMedItem
+          key={medication.id}
+          medication={medication}
+          navigation={navigation}
+        />
+      ))
+    );
+  }, [medications]);
   const onClick = (day) => {
     // alert(dates[day]);
     setMedicationList(

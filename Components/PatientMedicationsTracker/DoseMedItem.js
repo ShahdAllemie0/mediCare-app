@@ -14,22 +14,15 @@ import DoseItem from "./DoseItem";
 
 const DoseMedItem = ({ medication, day, date, navigation, medicationID }) => {
   const [dayDoses, setDayDoses] = useState();
+
   const [dosesList, setDosesList] = useState();
   useEffect(() => {
     var end = new Date(medication.end);
     if (day && +date <= +end) {
-      setDayDoses(medication.doses.filter((dose) => dose.day == day));
-    }
-    if (dayDoses && dayDoses.length != 0) {
+      const myList = medication.doses.filter((dose) => dose.day == day);
+      setDayDoses(myList);
       setDosesList(
-        dayDoses.map((dose) => (
-          <DoseItem key={dose.id} dose={dose} medicationID={medicationID} />
-        ))
-      );
-    }
-    if (dayDoses && dayDoses.length != 0) {
-      setDosesList(
-        dayDoses.map((dose) => (
+        myList.map((dose) => (
           <DoseItem
             key={dose.id}
             dose={dose}

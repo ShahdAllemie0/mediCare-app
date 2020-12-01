@@ -16,7 +16,7 @@ const DoseTrack = ({ route, setConsumed, patientMedications }) => {
       <>
         <CheckTime
           consumed={consumed}
-          key={consumed.id + consumed.date_time + dose.time}
+          key={consumed.id + consumed.date_time + dose.time + dose.id}
           dose={dose}
         />
       </>
@@ -55,7 +55,7 @@ const DoseTrack = ({ route, setConsumed, patientMedications }) => {
               <Text
                 style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
               >
-                {dose.amount} pill/s, at {dose.time.slice(0,5)}
+                {dose.amount} pill/s, at {dose.time.slice(0, 5)}
               </Text>
               <Text>{ch}</Text>
               {today_day == new_dose.day ? (
