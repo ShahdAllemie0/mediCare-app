@@ -4,23 +4,24 @@ const styles = StyleSheet.create({
   authButton: {
     alignSelf: "stretch",
     alignItems: "center",
+    marginBottom: 30,
     padding: 20,
-    backgroundColor: "rgb(20,60,100)",
-    marginTop: 30,
+    backgroundColor: "#2a7c6c",
+
+    borderRadius: 25,
   },
   authButtonText: {
-    color: "#FCFDFF",
-    fontWeight: "bold",
+    color: "#FFFFFF",
+    // fontWeight: "bold",
     fontSize: 18,
   },
   authContainer: {
-    flex: 1,
     alignSelf: "stretch",
-    justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#FCFDFF",
     paddingRight: 60,
     paddingLeft: 60,
+    paddingTop:30,
   },
   authOther: {
     color: "rgb(20,60,100)",
@@ -38,8 +39,8 @@ const styles = StyleSheet.create({
   authTitle: {
     color: "#2a7c6c",
     fontSize: 24,
-    marginBottom: 20,
-    borderBottomColor: "rgb(20,60,100)",
+    paddingBottom: 20,
+    textAlign:"center",
   },
   profileImage: {
     height: 75,

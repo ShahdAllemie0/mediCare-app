@@ -26,12 +26,6 @@ const LandingPage = (navigation) => {
         <Text style={styles.title}>Welcome to</Text>
         <Image source={require('./../../assets/logo.png')} style={{width:190, height:190}} />
         <Text style={styles.appName}>MediCare</Text>
-        <TouchableOpacity
-          style={styles.authButton}
-          onPress={() => navigation.navigate(CALENDAR)}
-        >
-          <Text style={styles.authButtonText}>Your Calendar</Text>
-        </TouchableOpacity>
       </View>
     </>
   );

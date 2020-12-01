@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Screens
 
-import { USER, USERMEDICATIONS, CALANDERANDTRACK } from "./screenNames";
+import { USER, USERMEDICATIONS, CALANDERANDTRACK, LANDING } from "./screenNames";
 import UserStack from "./StackNavigators/UserStack";
 import CalanderStack from "./StackNavigators/CalanderStack";
 import MedicationStack from "./StackNavigators/MedicationStack";
@@ -20,6 +20,7 @@ export default function RootTabNavigator() {
       tabBarOptions={tabBarOptions}
       screenOptions={tabScreenOptions}
     >
+
       <Screen name={USER} component={UserStack} />
 
       <Screen name={CALANDERANDTRACK} component={CalanderStack} />

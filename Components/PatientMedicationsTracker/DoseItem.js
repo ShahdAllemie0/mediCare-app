@@ -9,9 +9,16 @@ import {
   Left,
   Body,
   ListItem,
+  Icon,
+  Right
 } from "native-base";
 
 const DoseItem = ({ dose, navigation, medicationID }) => {
+  const n = dose.amount;
+  const pills = [...Array(n)].map((elementInArray, index) => (
+    <Icon name="pill" />
+    )
+)
   return (
     <ListItem
       button
@@ -23,12 +30,15 @@ const DoseItem = ({ dose, navigation, medicationID }) => {
             <Left>
               <Body>
                 <Text
-                  style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
+                  style={{ color: "#75bab4", fontSize: 20, fontWeight: "bold" }}
                 >
-                  {dose.amount} pill/s, at {dose.time.slice(0, 5)}
+                  {dose.amount} pill/s
                 </Text>
               </Body>
             </Left>
+            <Right>
+              <Text style={{ color: "#75bab4", fontSize: 20}}>{dose.time.slice(0, 5)}</Text>
+            </Right>
           </CardItem>
         </Card>
       </Content>

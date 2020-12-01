@@ -29,34 +29,7 @@ const ConditionsList = ({ logout, conditions, navigation }) => {
         <View style={{width:300}}>
         {conditionsList}
         </View>
-        <TouchableOpacity
-          style={styles.authButton}
-          onPress={() => navigation.navigate(HISTORY)}
-        >
-          <Text style={styles.authButtonText}>History</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.authButton}
-          onPress={() => navigation.navigate(MEDICATIONS)}
-        >
-          <Text style={styles.authButtonText}>Your Medications</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.authButton}
-          onPress={() => navigation.navigate(CALENDAR)}
-        >
-          <Text style={styles.authButtonText}>Your Calendar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.authButton}
-          onPress={() => navigation.navigate(USERCONDITIONS)}
-        >
-          <Text style={styles.authButtonText}>Your Medical Record</Text>
-        </TouchableOpacity>
-        {/* <Text>{userConditions.userConditions.conditions[0].name}h</Text> */}
       </View>
-      <LogoutButton logout={logout} />
     </>
   );
 };

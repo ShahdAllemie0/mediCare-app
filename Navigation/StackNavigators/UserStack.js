@@ -9,6 +9,7 @@ import {
   CONDITIONS,
   HISTORY,
   USERCONDITIONS,
+  LANDING
 
 } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
@@ -16,6 +17,7 @@ import Signup from "../../Components/Authentication/Signup";
 import History from "../../Components/History/History.js";
 import ConditionsList from "../../Components/Conditions/ConditionsList";
 import UserConditions from "../../Components/Conditions/UserConditions";
+import LandingPage from "../../Components/LandingPage/LandingPage";
 // Config
 import { stackScreenOptions } from "../options";
 
@@ -33,11 +35,11 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
     >
       {user ? (
         <>
-
+        
           <Screen
             name={USERCONDITIONS}
             component={UserConditions}
-            options={{ headerShown: false }}
+            options={{ headerShown: true }}
           />
           <Screen
             name={HISTORY}
@@ -63,11 +65,7 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             component={Signup}
             options={{ headerShown: false }}
           />
-          <Screen
-            name={LANDING}
-            component={LandingPage}
-            options={{ headerShown: false }}
-          />
+
         </>
       )}
     </Navigator>

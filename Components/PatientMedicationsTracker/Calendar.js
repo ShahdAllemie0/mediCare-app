@@ -40,6 +40,10 @@ const DosesList = ({ medications, navigation }) => {
           key={medication.id}
           medication={medication}
           navigation={navigation}
+          day={n}
+          date={dates[n]}
+          navigation={navigation}
+          medicationID={medication.id}
         />
       ))
     );
@@ -63,83 +67,187 @@ const DosesList = ({ medications, navigation }) => {
   return (
     <Container>
       <Header>
-        <Button
-          onPress={() => onClick("0")}
-          style={{
-            height: 50,
-            width: 50,
-            backgroundColor: "red",
-            borderRadius: 25,
-          }}
-        >
-          <Text>S</Text>
-        </Button>
-        <Button
+
+      {n==0 ?
+        (<Button
+        onPress={() => onClick("0")}
+        style={{
+          height: 50,
+          width: 50,
+          backgroundColor: "#2a7c6c",
+          borderRadius: 25,
+        }}
+      >
+        <Text>S</Text>
+      </Button>):
+      (<Button
+      onPress={() => onClick("0")}
+      style={{
+        height: 50,
+        width: 50,
+        backgroundColor: "#75BAB4",
+        borderRadius: 25,
+      }}
+      >
+      <Text>S</Text>
+      </Button>)
+      }
+
+        {n==1 ?
+          (<Button
           onPress={() => onClick("1")}
           style={{
             height: 50,
             width: 50,
-            backgroundColor: "red",
+            backgroundColor: "#2a7c6c",
             borderRadius: 25,
           }}
         >
           <Text>M</Text>
-        </Button>
-        <Button
+        </Button>):
+        (<Button
+        onPress={() => onClick("1")}
+        style={{
+          height: 50,
+          width: 50,
+          backgroundColor: "#75BAB4",
+          borderRadius: 25,
+        }}
+      >
+        <Text>M</Text>
+      </Button>)
+      }
+
+
+
+        {n==2 ?
+          (<Button
           onPress={() => onClick("2")}
           style={{
             height: 50,
             width: 50,
-            backgroundColor: "red",
+            backgroundColor: "#2a7c6c",
             borderRadius: 25,
           }}
         >
           <Text>T</Text>
-        </Button>
-        <Button
-          onPress={() => onClick("3")}
-          style={{
-            height: 50,
-            width: 50,
-            backgroundColor: "red",
-            borderRadius: 25,
-          }}
-        >
-          <Text>W</Text>
-        </Button>
-        <Button
-          onPress={() => onClick("4")}
-          style={{
-            height: 50,
-            width: 50,
-            backgroundColor: "red",
-            borderRadius: 25,
-          }}
-        >
-          <Text>T</Text>
-        </Button>
-        <Button
-          onPress={() => onClick("5")}
-          style={{
-            height: 50,
-            width: 50,
-            backgroundColor: "red",
-            borderRadius: 25,
-          }}
-        >
-          <Text>F</Text>
-        </Button>
-        <Button
-          onPress={() => onClick("6")}
-          style={{
-            height: 50,
-            width: 50,
-            backgroundColor: "red",
-            borderRadius: 25,
-          }}
-        >
-          <Text>S</Text>
-        </Button>
+        </Button>):
+        (<Button
+        onPress={() => onClick("2")}
+        style={{
+          height: 50,
+          width: 50,
+          backgroundColor: "#75BAB4",
+          borderRadius: 25,
+        }}
+      >
+        <Text>T</Text>
+      </Button>)
+      }
+
+      {n==3 ?
+        (<Button
+        onPress={() => onClick("3")}
+        style={{
+          height: 50,
+          width: 50,
+          backgroundColor: "#2a7c6c",
+          borderRadius: 25,
+        }}
+      >
+        <Text>W</Text>
+      </Button>):
+      (<Button
+      onPress={() => onClick("3")}
+      style={{
+        height: 50,
+        width: 50,
+        backgroundColor: "#75BAB4",
+        borderRadius: 25,
+      }}
+    >
+      <Text>W</Text>
+    </Button>)
+    }
+
+
+    {n==4 ?
+      (<Button
+      onPress={() => onClick("4")}
+      style={{
+        height: 50,
+        width: 50,
+        backgroundColor: "#2a7c6c",
+        borderRadius: 25,
+      }}
+    >
+      <Text>T</Text>
+    </Button>):
+    (<Button
+    onPress={() => onClick("4")}
+    style={{
+      height: 50,
+      width: 50,
+      backgroundColor: "#75BAB4",
+      borderRadius: 25,
+    }}
+  >
+    <Text>T</Text>
+  </Button>)
+  }
+
+
+  {n==5 ?
+    (<Button
+    onPress={() => onClick("5")}
+    style={{
+      height: 50,
+      width: 50,
+      backgroundColor: "#2a7c6c",
+      borderRadius: 25,
+    }}
+  >
+    <Text>F</Text>
+  </Button>):
+  (<Button
+  onPress={() => onClick("5")}
+  style={{
+    height: 50,
+    width: 50,
+    backgroundColor: "#75BAB4",
+    borderRadius: 25,
+  }}
+>
+  <Text>F</Text>
+</Button>)
+}
+
+
+{n==6 ?
+  (<Button
+  onPress={() => onClick("6")}
+  style={{
+    height: 50,
+    width: 50,
+    backgroundColor: "#2a7c6c",
+    borderRadius: 25,
+  }}
+>
+  <Text>S</Text>
+</Button>):
+(<Button
+onPress={() => onClick("6")}
+style={{
+  height: 50,
+  width: 50,
+  backgroundColor: "#75BAB4",
+  borderRadius: 25,
+}}
+>
+<Text>S</Text>
+</Button>)
+}
+
       </Header>
       <Content>
         <List>{medicationList}</List>

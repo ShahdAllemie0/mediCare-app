@@ -14,38 +14,40 @@ const MedicationList = ({ medications, navigation }) => {
   ));
 
   return (
+    <Container>
+    <Content>
+
+      <List>
+        {medicationList}
+        </List>
+
+    </Content>
     <Container style={{
       justifyContent: "center",
       alignItems: "center",
       flexDirection: 'column',
       flex: 1
     }}>
-      <Content>
 
-        <List>
-          {medicationList}
-          </List>
-
-      </Content>
       <Button
       iconRight
       onPress={() => navigation.navigate(ADD_MEDICATION)}
       style={{
         backgroundColor:"#2a7c6c",
-        alignSelf: 'flex-end',
         position: 'absolute',
-        bottom: 35,
+        bottom: 20,
+        right:20,
         padding:20,
         width:70,
         height:70,
         borderRadius: 45,
         justifyContent: "center",
-        alignItems: "center",
       }}
       >
-        <Icon name='add' iconSize="100" />
+        <Icon name='add' style={{marginLeft: 0, marginRight: 0, fontSize: 40}} />
       </Button>
 
+    </Container>
     </Container>
   );
 };

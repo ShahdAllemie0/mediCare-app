@@ -33,7 +33,7 @@ const DoseMedItem = ({ medication, day, date, navigation, medicationID }) => {
             <Left>
               <Body>
                 <Text
-                  style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
+                  style={{ color: "#2a7c6c", fontSize: 20, fontWeight: "bold" }}
                 >
                   {medication.medication.trade_name}
                 </Text>
