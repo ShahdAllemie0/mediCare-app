@@ -14,45 +14,39 @@ import {
 import DoseMedItem from "./DoseMedItem";
 
 const DosesList = ({ medications, navigation }) => {
-
-
-  var date = new Date()
+  var date = new Date();
   var n = date.getDay();
 
   useEffect(() => {
     var dates = [];
-    dates[n] = date
-    for(var i = 0; i<=6; i++){
-      if(i < n){
-        var span = n-i;
-        dates[i] = new Date(date)
-        dates[i].setDate(dates[i].getDate() - span)
-      }
-      else if(i > n){
-        var span = i-n;
-        dates[i] = new Date(date)
-        dates[i].setDate(dates[i].getDate() + span)
+    dates[n] = date;
+    for (var i = 0; i <= 6; i++) {
+      if (i < n) {
+        var span = n - i;
+        dates[i] = new Date(date);
+        dates[i].setDate(dates[i].getDate() - span);
+      } else if (i > n) {
+        var span = i - n;
+        dates[i] = new Date(date);
+        dates[i].setDate(dates[i].getDate() + span);
       }
     }
-  },[date.getDate()])
-
+  }, [date.getDate()]);
 
   // Create a list of this week's dates
   var dates = [];
-  dates[n] = date
-  for(var i = 0; i<=6; i++){
-    if(i < n){
-      var span = n-i;
-      dates[i] = new Date(date)
-      dates[i].setDate(dates[i].getDate() - span)
-    }
-    else if(i > n){
-      var span = i-n;
-      dates[i] = new Date(date)
-      dates[i].setDate(dates[i].getDate() + span)
+  dates[n] = date;
+  for (var i = 0; i <= 6; i++) {
+    if (i < n) {
+      var span = n - i;
+      dates[i] = new Date(date);
+      dates[i].setDate(dates[i].getDate() - span);
+    } else if (i > n) {
+      var span = i - n;
+      dates[i] = new Date(date);
+      dates[i].setDate(dates[i].getDate() + span);
     }
   }
-
 
   const [medicationList, setMedicationList] = useState(
     medications.map((medication) => (
@@ -67,12 +61,18 @@ const DosesList = ({ medications, navigation }) => {
   const onClick = (day) => {
     // alert(dates[day]);
     setMedicationList(
-
-      medications.map(medication => (
-        <DoseMedItem key={medication.id} medication={medication} day={day} date={dates[day]} navigation={navigation} />
-      )))
-  }
-
+      medications.map((medication) => (
+        <DoseMedItem
+          key={medication.id}
+          medication={medication}
+          day={day}
+          date={dates[day]}
+          navigation={navigation}
+          medicationID={medication.id}
+        />
+      ))
+    );
+  };
 
   return (
     <Container>
@@ -156,11 +156,7 @@ const DosesList = ({ medications, navigation }) => {
         </Button>
       </Header>
       <Content>
-        <List>
-          {medicationList}
-
-          </List>
-
+        <List>{medicationList}</List>
       </Content>
     </Container>
   );

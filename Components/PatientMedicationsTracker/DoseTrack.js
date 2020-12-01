@@ -1,55 +1,51 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CheckTime from "./CheckTime";
 import { connect } from "react-redux";
-import {
-  Content,
-  Card,
-  CardItem,
-  Text,
-  Left,
-  Body,
-  ListItem,
-} from "native-base";
+import { Content, Card, CardItem, Text, Left, Body } from "native-base";
 import { Button } from "react-native";
 import { setConsumed } from "../../redux/actions";
-const DoseTrack = ({ route, setConsumed, consumed }) => {
-  let { dose } = route.params;
-  const ch = dose.consumed.map((consumed) => {
-    // let is_consumed = true;
-    // if (consumed.id == dose.id) {
-    //   is_consumed = false;
-    // }
 
+const DoseTrack = ({ route, setConsumed, patientMedications }) => {
+  let { dose } = route.params;
+  let { medicationID } = route.params;
+  const medication = patientMedications.find((med) => med.id == medicationID);
+  const new_dose = medication.doses.find((dos) => dos.id == dose.id);
+
+  let ch = new_dose.consumed.map((consumed) => {
     return (
       <>
         <CheckTime
           consumed={consumed}
-          key={consumed.id + consumed.date_time}
+          key={consumed.id + consumed.date_time + dose.time}
           dose={dose}
         />
-        {/* <Text>
-          {is_consumed ? (
-            <Button onPress={onClick} title={"Take it"} />
-          ) : (
-            <Button onPress={onClick} title={"Take it"} />
-          )}
-        </Text> */}
       </>
     );
   });
-  const [taken, setTaken] = useState(false);
-  const [named, setNamed] = useState("take it");
+
   const onClick = () => {
-    dose = dose.id;
-    console.log(dose);
-    if (!taken) {
-      setConsumed({ dose });
-      // delete line 24,25
-      setTaken(true);
-      setNamed("taked");
-      // deleteDoses({ dose })
-    }
+    const dode_id = dose.id;
+    setConsumed({ dose: dode_id });
   };
+
+  const today_date_time = new Date();
+  const today_day = today_date_time.getDay();
+  const today_date = `${today_date_time.getFullYear()}-${
+    today_date_time.getMonth() + 1
+  }-${today_date_time.getDate()}`;
+
+  const buttonValue = () => {
+    const CurrentConsumedDose = new_dose.consumed?.filter((e) => {
+      const consumed_date_time = new Date(e.date_time);
+      const consumed_date = `${consumed_date_time.getFullYear()}-${
+        consumed_date_time.getMonth() + 1
+      }-${consumed_date_time.getDate()}`;
+
+      return consumed_date == today_date;
+    });
+    return CurrentConsumedDose;
+  };
+
   return (
     <Content>
       <Card>
@@ -59,12 +55,18 @@ const DoseTrack = ({ route, setConsumed, consumed }) => {
               <Text
                 style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
               >
-                {dose.amount} pill/s, at {dose.time.slice(0,5)} --
-                {/* {dose.consumed[0].date_time}l */}
+                {dose.amount} pill/s, at {dose.time.slice(0,5)}
               </Text>
               <Text>{ch}</Text>
-
-              <Button onPress={onClick} title={named} />
+              {today_day == new_dose.day ? (
+                buttonValue().length ? (
+                  <Button title={"Consumed"} />
+                ) : (
+                  <Button onPress={onClick} title={"Take it"} />
+                )
+              ) : (
+                <Button title={"NOT TODAY"} />
+              )}
             </Body>
           </Left>
         </CardItem>
@@ -72,10 +74,10 @@ const DoseTrack = ({ route, setConsumed, consumed }) => {
     </Content>
   );
 };
-
 const mapStateToProps = (state) => {
-  return { consumed: state.consumed };
+  return { patientMedications: state.medications.patientMedications };
 };
+
 const mapDispatchToProps = {
   setConsumed,
 };

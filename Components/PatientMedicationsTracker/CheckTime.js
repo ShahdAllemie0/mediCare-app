@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import { Button } from "react-native";
-import { connect } from "react-redux";
+import React from "react";
 import { Text } from "native-base";
-import { setConsumed } from "../../redux/actions";
-const CheckTime = ({ setConsumed, consumed, dose }) => {
+
+const CheckTime = ({ consumed, dose }) => {
   const consumed_date_time = new Date(consumed.date_time);
   const consumed_time = consumed_date_time.toLocaleTimeString("it-IT");
   const consumed_date = consumed_date_time.getDate();
@@ -16,31 +14,11 @@ const CheckTime = ({ setConsumed, consumed, dose }) => {
   const today_hours = today_date_time.getHours();
   const today_mins = today_date_time.getMinutes();
   let dose_time = dose.time;
+  let dose_mins = dose_time.slice(3, 5);
+
   dose_time = dose_time.slice(0, 2);
-  console.log(consumed_hours);
-  console.log(dose_time);
-  //   const time = d.toLocaleTimeString("it-IT");
-  //   console.log(today_time > d);
-  //   d = d.toString();
-  //   console.log(d);
-  //   console.log(d.getHours());
-
-  const [taken, setTaken] = useState(false);
-  const button = () => {
-    if (consumed.id == dose.id) {
-      return <></>;
-    } else {
-      <Button onPress={onClick} title={"Take it"} />;
-    }
-  };
-
-  const onClick = () => {
-    dose = dose.id;
-    if (!taken) {
-      setConsumed({ dose });
-      setTaken(true);
-    }
-  };
+  console.log(consumed_mins);
+  console.log(dose_mins);
 
   return (
     <Text>
@@ -49,23 +27,27 @@ const CheckTime = ({ setConsumed, consumed, dose }) => {
           <Text style={{ color: "green", fontSize: 20, fontWeight: "bold" }}>
             on time
           </Text>
+        ) : consumed_hours - dose_time == 1 ||
+          consumed_hours - dose_time == -1 ? (
+          consumed_mins - dose_mins < 60 || consumed_mins - dose_mins < -60 ? (
+            <Text style={{ color: "green", fontSize: 20, fontWeight: "bold" }}>
+              on time
+            </Text>
+          ) : (
+            <Text style={{ color: "orange", fontSize: 20, fontWeight: "bold" }}>
+              late ({parseInt(consumed_hours) - parseInt(dose_time)} hours)
+            </Text>
+          )
         ) : (
           <Text style={{ color: "orange", fontSize: 20, fontWeight: "bold" }}>
             late ({parseInt(consumed_hours) - parseInt(dose_time)} hours)
           </Text>
         )
       ) : (
-        <Text style={{ color: "red", fontSize: 20, fontWeight: "bold" }}>
-          missed
-        </Text>
+        <Text style={{ color: "red", fontSize: 20, fontWeight: "bold" }}></Text>
       )}
-      {button}
     </Text>
   );
 };
 
-const mapDispatchToProps = {
-  setConsumed,
-};
-
-export default connect(null, mapDispatchToProps)(CheckTime);
+export default CheckTime;

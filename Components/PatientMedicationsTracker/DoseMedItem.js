@@ -12,27 +12,30 @@ import {
 
 import DoseItem from "./DoseItem";
 
-
-
-const DoseMedItem = ({ medication, day, date, navigation }) => {
-
-  const [dayDoses, setDayDoses] = useState()
-  const [dosesList, setDosesList] = useState()
+const DoseMedItem = ({ medication, day, date, navigation, medicationID }) => {
+  const [dayDoses, setDayDoses] = useState();
+  const [dosesList, setDosesList] = useState();
   useEffect(() => {
-    var end = new Date(medication.end)
-    if(day && +date <= +end){
-      setDayDoses(medication.doses.filter(dose => dose.day == day))
-    }
-    if(dayDoses && dayDoses.length != 0){
-      setDosesList(dayDoses.map((dose) => (
-        <DoseItem key={dose.id} dose={dose} />
-      )))
-
+    var end = new Date(medication.end);
+    if (day && +date <= +end) {
+      setDayDoses(medication.doses.filter((dose) => dose.day == day));
     }
     if (dayDoses && dayDoses.length != 0) {
       setDosesList(
         dayDoses.map((dose) => (
-          <DoseItem key={dose.id} dose={dose} navigation={navigation} />
+          <DoseItem key={dose.id} dose={dose} medicationID={medicationID} />
+        ))
+      );
+    }
+    if (dayDoses && dayDoses.length != 0) {
+      setDosesList(
+        dayDoses.map((dose) => (
+          <DoseItem
+            key={dose.id}
+            dose={dose}
+            navigation={navigation}
+            medicationID={medicationID}
+          />
         ))
       );
     }

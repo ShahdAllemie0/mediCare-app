@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
   medications,
   userConditions,
   history,
+  consumed,
 });
 
 export default rootReducer;
