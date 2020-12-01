@@ -1,7 +1,7 @@
 import React from "react";
 import { Icon, Item, View } from "native-base";
 
-import { USER } from "./screenNames";
+import { USER, USERMEDICATIONS, CALANDERANDTRACK } from "./screenNames";
 
 export const stackScreenOptions = {
   headerStyle: {
@@ -29,10 +29,11 @@ export const tabScreenOptions = ({ route }) => ({
       case USER:
         iconName = "account";
         break;
-
+      case USERMEDICATIONS:
+        iconName = "account";
+        break;
       default:
-        return 0;
-      // <CartIcon color={color} />;
+        iconName = "account";
     }
     return (
       <Icon name={iconName} type="MaterialCommunityIcons" style={{ color }} />
