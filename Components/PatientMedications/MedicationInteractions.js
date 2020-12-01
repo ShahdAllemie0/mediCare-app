@@ -74,8 +74,8 @@ const MedicationInteractions = ({ medications, navigation, medicationAndInteract
 
 const mapStateToProps = (state) => {
     return {
-        medicationAndInteractions: state.medications.medicationAndInteractions,
-        medications: state.medications.patientMedications,
+      medicationAndInteractions: state.medications.medicationAndInteractions,
+      medications: state.medications.patientMedications,
     }
 }
 

@@ -9,15 +9,16 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import styles from "./styles";
 
 const AddDoseDetail = ({ setDoses, doses, totalAmount, setTotalAmount, medication }) => {
+  const initialDate = new Date()
   const [date, setDate] = useState(new Date(1598051730000));
-  const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(`${initialDate.getHours()}:${initialDate.getMinutes()}`);
   const [amount, setAmount] = useState("");
   const [show, setShow] = useState(false);
 
   const onSubmit = () => {
       const total = totalAmount + (+amount)
       if(total <= medication.max_intake){
-        new_dose = {time: time.toLocaleTimeString(), amount: +amount}
+        new_dose = {time: time, amount: +amount}
         new_doses = [...doses,new_dose]
         setTotalAmount(total)
         setDoses(new_doses)    
@@ -34,14 +35,15 @@ const AddDoseDetail = ({ setDoses, doses, totalAmount, setTotalAmount, medicatio
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     setDate(currentDate);
-    setTime(currentDate)
+    const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`
+    setTime(formattedTime)
   }
 
   return (
     <>
       <Text style={styles.authTitle}>Dose details</Text>
       <Button onPress={showTimepicker} title="Select time" />
-      <Text style={styles.authTitle}>{time.toLocaleTimeString()}</Text>
+      <Text style={styles.authTitle}>{time}</Text>
       {show && <DateTimePicker
           testID="dateTimePicker"
           value={date}

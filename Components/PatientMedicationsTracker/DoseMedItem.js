@@ -52,7 +52,7 @@ const DoseMedItem = ({ medication, day, date, navigation }) => {
                   <Text
                     style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
                   >
-                    {medication.medication.drug}
+                    {medication.medication.trade_name}
                   </Text>
                   {dosesList}
                 </Body>

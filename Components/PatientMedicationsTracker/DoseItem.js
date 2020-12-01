@@ -22,7 +22,7 @@ const DoseItem = ({ dose, navigation }) => {
                 <Text
                   style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
                 >
-                  {dose.amount} pill/s, at {dose.time}
+                  {dose.amount} pill/s, at {dose.time.slice(0,5)}
                 </Text>
               </Body>
             </Left>

@@ -59,7 +59,7 @@ const DoseTrack = ({ route, setConsumed, consumed }) => {
               <Text
                 style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
               >
-                {dose.amount} pill/s, at {dose.time} --
+                {dose.amount} pill/s, at {dose.time.slice(0,5)} --
                 {/* {dose.consumed[0].date_time}l */}
               </Text>
               <Text>{ch}</Text>

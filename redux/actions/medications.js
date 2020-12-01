@@ -41,10 +41,11 @@ export const addPatientMedication = (data, navigation) => async (dispatch) => {
       type: SET_MEDICATION_INTERACTIONS,
       payload: medicationInteractions,
     });
-    if(medicationInteractions.drug_drug_interactions || medicationAndInteractions.drug_drug_time_interactions || medicationAndInteractions.drug_disease_interactions){
+    if(medicationInteractions.drug_drug_interactions || medicationInteractions.drug_drug_time_interactions || medicationInteractions.drug_disease_interactions){
       navigation.replace(MEDICATIONS_INTERACTIONS) 
     } else {
-      navigation.replace(MEDICATIONS)
+      // navigation.replace(MEDICATIONS)
+      navigation.goBack()
     }
   } catch (err) {
     console.error("wrong ??", err);
@@ -57,7 +58,7 @@ export const updatePatientMedication = (data, medication_id, navigation) => asyn
     const medication = res.data;
     console.log("*****----- updated medication ------***** ", medication)
     dispatch(fetchPatientMedications())
-    navigation.replace(MEDICATIONS)
+    navigation.goBack()
   } catch (err) {
     console.error("wrong ??", err);
   }
@@ -69,7 +70,7 @@ export const deleteMedication = (medicationID, navigation) => async (dispatch) =
     const medication = res.data;
     console.log("*****----- updated medication ------***** ", medication)
     dispatch(fetchPatientMedications())
-    navigation.replace(MEDICATIONS)
+    navigation.goBack()
   } catch (err) {
     console.error("wrong ??", err);
   }
