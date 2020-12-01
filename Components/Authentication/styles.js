@@ -4,15 +4,14 @@ const styles = StyleSheet.create({
   authButton: {
     alignSelf: "stretch",
     alignItems: "center",
-    padding: 20,
-    // backgroundColor: "#ffffff",
     marginTop: 30,
-    borderColor: "#2a7c6c",
-    borderWidth:1,
-    // borderRadius: 25,
+    padding: 20,
+    backgroundColor: "#2a7c6c",
+
+    borderRadius: 25,
   },
   authButtonText: {
-    color: "#2a7c6c",
+    color: "#FFFFFF",
     // fontWeight: "bold",
     fontSize: 18,
   },

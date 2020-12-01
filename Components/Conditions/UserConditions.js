@@ -5,10 +5,11 @@ import { CONDITIONS } from "../../Navigation/screenNames";
 import { connect } from "react-redux";
 // Components
 import LogoutButton from "../Authentication/LogoutButton";
+import History from "../History/History";
 import { logout, fetchUserConditions } from "../../redux/actions";
 import { TouchableOpacity, View } from "react-native";
 import { CheckBox } from "react-native-elements";
-import { Text } from "native-base";
+import { Text, Card, CardItem, Left, Body } from "native-base";
 // Style
 import styles from "./styles";
 
@@ -25,12 +26,17 @@ const UserConditions = ({
     userConditionsList = userConditions.userConditions.conditions.map(
       (condition) => {
         return (
-          <CheckBox
-            disabled={true}
-            title={condition.name}
-            checked={true}
-            key={condition.name + condition.id}
-          />
+          <Card>
+            <CardItem header>
+              <Left>
+                <Body>
+                  <Text style={{ color: "#2a7c6c", textAlign:"center" }}>
+                    {condition.name}
+                  </Text>
+                </Body>
+              </Left>
+            </CardItem>
+          </Card>
         );
       }
     );
@@ -38,10 +44,10 @@ const UserConditions = ({
   return (
     <>
       <View style={styles.authContainer}>
-        <Text style={styles.authTitle}>Welcome to MEDICARE</Text>
-        <Text style={styles.authTitle}>Your Medical Conditions:</Text>
-<Text>HELOOOOOOOOOO</Text>
+      <View style={{width:300}}>
         {userConditionsList}
+      </View>
+
 
         <TouchableOpacity
           style={styles.authButton}
@@ -50,6 +56,9 @@ const UserConditions = ({
           <Text style={styles.authButtonText}>Edit</Text>
         </TouchableOpacity>
       </View>
+      <Text style={styles.authTitle}>Your Medication's History</Text>
+      <History />
+
       <LogoutButton logout={logout} />
     </>
   );

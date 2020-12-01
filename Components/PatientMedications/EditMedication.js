@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 // Styling Components
 import { TouchableOpacity, View } from "react-native";
-import { Text, Input, Item, Picker, Icon, Label, Container, Content } from "native-base";
-import styles from "../Authentication/styles";
+import { Text, Input, Item, Picker, Icon, Label, Container, Content, Button } from "native-base";
+import styles from "./styles";
 // Redux
 import { connect } from "react-redux"
 import { updatePatientMedication, deleteMedication, addDose, deleteDose } from "../../redux/actions"
@@ -22,33 +22,33 @@ const EditMedication = ({ navigation, user, route, updatePatientMedication, dele
 
   const [days, setDays] = useState(initialDays);
   const [duration, setDuration] = useState(medication.duration.toString());
-  const [doses, setDoses] = useState(initialDoses); 
+  const [doses, setDoses] = useState(initialDoses);
   const [totalAmount, setTotalAmount] = useState(initialTotalAmount)
 
   // Components
-  const daysOptions = daysObj.map((day, index) => 
+  const daysOptions = daysObj.map((day, index) =>
     <DaysCheckbox key={index} day={day} setDays={setDays} days={days}/>
     )
   const dosesCards = doses.map((dose, index) => {
     return (
-        <DoseItem key={index} dose={dose} doses={doses} setDoses={setDoses} 
+        <DoseItem key={index} dose={dose} doses={doses} setDoses={setDoses}
         totalAmount={totalAmount} setTotalAmount={setTotalAmount}/>
     )
     })
-  
+
   // Prepare data for post action
   const jsonDoseList = (myDays=days, myDoses=doses) => {
     let doseList = []
     myDays.forEach(day => {
-      let dayDoses = myDoses.map( dose => { 
-      return { 
+      let dayDoses = myDoses.map( dose => {
+      return {
         medication: medication.id,
-        day: day.value.toString(), 
-        time: dose.time, 
-        amount: dose.amount 
+        day: day.value.toString(),
+        time: dose.time,
+        amount: dose.amount
       }})
       let temp = doseList
-      doseList = temp.concat(dayDoses) 
+      doseList = temp.concat(dayDoses)
     })
     return doseList
   }
@@ -68,7 +68,7 @@ const EditMedication = ({ navigation, user, route, updatePatientMedication, dele
         // 2) create new doses
         doseList = jsonDoseList(newDays)
         doseList.forEach(dose => addDose(dose))
-    } 
+    }
     if(newDoses){
       // 1) create new dose for each day
       doseList = jsonDoseList(notChangedDays, newDoses)
@@ -76,52 +76,53 @@ const EditMedication = ({ navigation, user, route, updatePatientMedication, dele
     }
 
     updatePatientMedication({ duration: +duration }, medication.id, navigation);
-    
+
   };
 
 //   if(!user) navigation.replace("Login")
 
   return (
-    
+
     <Container>
-      <Content> 
+      <Content>
         <View style={styles.authContainer}>
-          <Text style={styles.authTitle}>Update Medication</Text>
-          <Label>Schedualing</Label>
+          <Label style={{ color: "#2a7c6c", fontSize:20, marginTop:20, borderTopWidth:1, borderTopColor:"#cce8e1"}}>Schedualing</Label>
           <Item>
             <Input
               style={styles.authTextInput}
               placeholder="Duration"
-              placeholderTextColor="#A6AEC1"
+              placeholderTextColor="#75bab4"
               value={duration}
               name="duration"
               onChangeText={setDuration}
               autoCapitalize="none"
             />
           </Item>
+          <View style={{width:300}}>
             {daysOptions}
-            <AddDoseDetail doses={doses} setDoses={setDoses} 
+          </View>
+            <AddDoseDetail doses={doses} setDoses={setDoses}
             totalAmount={totalAmount} setTotalAmount={setTotalAmount}
             medication={medication.medication}
             />
           {dosesCards}
         </View>
-        <TouchableOpacity
-          style={styles.authButton}
+        <Button full large
+          style={{backgroundColor:"#75bab4", marginTop:10}}
           onPress={submitMedication}
         >
-          <Text style={styles.authButtonText}>Update</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.authButton}
+          <Text style={{color:"#ffffff", fontSize:20}}>Update</Text>
+        </Button>
+        <Button full large
+          style={{backgroundColor:"#2a7c6c", marginTop:10}}
           onPress={() => deleteMedication(medication.id, navigation)}
         >
-          <Text style={styles.authButtonText}>Delete</Text>
-        </TouchableOpacity>
+          <Text style={{color:"#ffffff", fontSize:20}}>Delete</Text>
+        </Button>
         </Content>
     </Container>
-        
-      
+
+
   );
 };
 
@@ -136,7 +137,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updatePatientMedication: ( newMedication, medicationID, navigation) =>
       dispatch(updatePatientMedication( newMedication, medicationID, navigation)),
-    deleteMedication: (medicationID, navigation) => 
+    deleteMedication: (medicationID, navigation) =>
       dispatch(deleteMedication(medicationID, navigation)),
     deleteDose: (doseID) => dispatch(deleteDose(doseID)),
     addDose: (dose) => dispatch(addDose(dose)),

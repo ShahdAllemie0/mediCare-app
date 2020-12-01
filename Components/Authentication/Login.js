@@ -23,7 +23,7 @@ const Login = ({ navigation, login }) => {
       <TextInput
         style={styles.authTextInput}
         placeholder="Username"
-        placeholderTextColor="#2a7c6c"
+        placeholderTextColor="#cce8e1"
         value={username}
         onChangeText={setUsername}
         autoCapitalize="none"
@@ -31,7 +31,7 @@ const Login = ({ navigation, login }) => {
       <TextInput
         style={styles.authTextInput}
         placeholder="Password"
-        placeholderTextColor="#2a7c6c"
+        placeholderTextColor="#cce8e1"
         value={password}
         onChangeText={setPassword}
         autoCapitalize="none"

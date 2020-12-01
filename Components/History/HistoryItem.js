@@ -13,15 +13,16 @@ const HistoryItem = ({ history }) => (
           <CardItem header>
             <Left>
               <Body>
-                <Text style={{ color: "black", fontSize: 20, fontWeight: "bold"}}>
+                <Text style={{ color: "#2a7c6c", fontSize: 20, fontWeight: "bold"}}>
                   {history.medication.drug}
                 </Text>
-                <Text>{history.medication.trade_name}</Text>
-                <Right>
-                  <Text>{history.duration} weeks</Text>
-                </Right>
+                <Text style={{ color:"#75bab4" }}>{history.medication.trade_name}</Text>
+
               </Body>
             </Left>
+            <Right>
+              <Text style={{ color: "#2a7c6c"}}>{history.duration} weeks</Text>
+            </Right>
           </CardItem>
         </Card>
       </Content>

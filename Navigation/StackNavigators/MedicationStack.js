@@ -31,12 +31,12 @@ export default connect(mapStateToProps)(function MedicationStack({ user }) {
         <Screen
         name={ADD_MEDICATION}
         component={AddMedication}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
         />
         <Screen
         name={Edit_MEDICATION}
         component={EditMedication}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
         />
         <Screen
         name={MEDICATIONS}
