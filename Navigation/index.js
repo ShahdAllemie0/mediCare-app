@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Screens
-import { USER } from "./screenNames";
+import { USER, MEDICATIONS } from "./screenNames";
 import UserStack from "./StackNavigators/UserStack";
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -18,6 +18,7 @@ export default function RootTabNavigator() {
       screenOptions={tabScreenOptions}
     >
       <Screen name={USER} component={UserStack} />
+      <Screen name={MEDICATIONS} component={UserStack} />
     </Navigator>
   );
 }

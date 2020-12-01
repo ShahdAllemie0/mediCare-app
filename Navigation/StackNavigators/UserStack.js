@@ -16,9 +16,11 @@ import {
   ADD_MEDICATION,
   Edit_MEDICATION,
   MEDICATIONS_INTERACTIONS,
+  LANDING
 } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
+import LandingPage from "../../Components/LandingPage/LandingPage";
 // import Conditions from "../../Components/Conditions/ConditionsList";
 import PatientMedications from "../../Components/PatientMedications/MedicationList";
 import History from "../../Components/History/History.js";
@@ -42,11 +44,12 @@ const mapStateToProps = ({ user }) => ({
 export default connect(mapStateToProps)(function UserStack({ user }) {
   return (
     <Navigator
-      initialRouteName={user ? USERCONDITIONS : LOGIN}
+      initialRouteName={user ? LANDING : LOGIN}
       screenOptions={stackScreenOptions}
     >
       {user ? (
         <>
+
           <Screen
             name={USERCONDITIONS}
             component={UserConditions}
@@ -60,12 +63,12 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name={ADD_MEDICATION}
             component={AddMedication}
-            options={{ headerShown: false }}
+            options={{ headerShown: true }}
           />
           <Screen
             name={Edit_MEDICATION}
             component={EditMedication}
-            options={{ headerShown: false }}
+            options={{ headerShown: true }}
           />
           <Screen
             name={MEDICATIONS}
@@ -75,7 +78,7 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name={CONDITIONS}
             component={ConditionsList}
-            options={{ headerShown: false }}
+            options={{ headerShown: true }}
           />
           <Screen
             name={CALENDAR}
@@ -107,6 +110,11 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name={SIGNUP}
             component={Signup}
+            options={{ headerShown: false }}
+          />
+          <Screen
+            name={LANDING}
+            component={LandingPage}
             options={{ headerShown: false }}
           />
         </>

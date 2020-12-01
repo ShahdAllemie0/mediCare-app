@@ -40,7 +40,7 @@ const UserConditions = ({
       <View style={styles.authContainer}>
         <Text style={styles.authTitle}>Welcome to MEDICARE</Text>
         <Text style={styles.authTitle}>Your Medical Conditions:</Text>
-
+<Text>HELOOOOOOOOOO</Text>
         {userConditionsList}
 
         <TouchableOpacity

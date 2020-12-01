@@ -1,51 +1,68 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  text: {
-    color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-    opacity: 1,
+  authButton: {
+    alignSelf: "stretch",
+    alignItems: "center",
+    padding: 20,
+    // backgroundColor: "#ffffff",
+    marginTop: 30,
+    borderColor: "#2a7c6c",
+    borderWidth:1,
+    // borderRadius: 25,
   },
-  divider: {
-    borderBottomColor: "black",
+  authButtonText: {
+    color: "#2a7c6c",
+    // fontWeight: "bold",
+    fontSize: 18,
+  },
+  authContainer: {
+    paddingTop:10,
+    flex: 1,
+    alignSelf: "stretch",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    paddingRight: 60,
+    paddingLeft: 60,
+  },
+  authOther: {
+    color: "#2a7c6c",
+    marginTop: 15,
+  },
+  authTextInput: {
+    alignSelf: "stretch",
+    textAlign: "left",
+    height: 40,
+    marginBottom: 30,
+    color: "#2a7c6c",
+    borderBottomColor: "#2a7c6c",
     borderBottomWidth: 1,
   },
-  overlay: {
-    flex: 1,
-    position: "absolute",
-    left: 0,
-    right: 0,
-
-    opacity: 0.5,
-    backgroundColor: "black",
-    height: "100%",
-    width: "100%",
+  authTitle: {
+    color: "#75bab4",
+    fontSize: 24,
+    marginBottom: 20,
+    borderBottomColor: "rgb(20,60,100)",
   },
-  listitem: {
-    backgroundColor: "transparent",
-    borderTopWidth: 0,
-    borderRightWidth: 0,
-    borderLeftWidth: 0,
-    borderBottomWidth: 0,
-    height: 180,
-    flexDirection: "row",
+  profileImage: {
+    height: 75,
+    width: 150,
+    flex: 0.5,
+    marginBottom: 10,
   },
-  transparent: {
-    backgroundColor: "transparent",
-    borderTopWidth: 0,
-    borderRightWidth: 0,
-    borderLeftWidth: 0,
-    borderBottomWidth: 0,
-    flexDirection: "row",
+  profiletext: {
+    textAlign: "left",
+    color: "#2a7c6c",
+    fontSize: 16,
   },
-  thumbnail: {
-    backgroundColor: "white",
-    opacity: 1,
-  },
-  background: {
-    width: null,
-    flex: 1,
+  appName: {
+    textAlign: "center",
+    color: "#2a7c6c",
+    fontSize: 30,
+    marginTop:20,
+    marginBottom: 50,
   },
 });
+
 export default styles;

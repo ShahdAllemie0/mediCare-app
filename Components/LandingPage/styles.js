@@ -1,19 +1,8 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  authButton: {
-    alignSelf: "stretch",
-    alignItems: "center",
-    padding: 20,
-    backgroundColor: "rgb(20,60,100)",
-    marginTop: 30,
-  },
-  authButtonText: {
-    color: "#FCFDFF",
-    fontWeight: "bold",
-    fontSize: 18,
-  },
-  authContainer: {
+
+  container: {
     flex: 1,
     alignSelf: "stretch",
     justifyContent: "center",
@@ -22,23 +11,16 @@ const styles = StyleSheet.create({
     paddingRight: 60,
     paddingLeft: 60,
   },
-  authOther: {
-    color: "rgb(20,60,100)",
-    marginTop: 15,
-  },
-  authTextInput: {
-    alignSelf: "stretch",
-    textAlign: "left",
-    height: 40,
-    marginBottom: 30,
-    color: "rgb(20,60,100)",
-    borderBottomColor: "rgb(20,60,100)",
-    borderBottomWidth: 1,
-  },
-  authTitle: {
+  title: {
     color: "#2a7c6c",
-    fontSize: 24,
-    marginBottom: 20,
+    fontSize: 50,
+    marginBottom: 50,
+    borderBottomColor: "rgb(20,60,100)",
+  },
+  appName: {
+    color: "#2a7c6c",
+    fontSize: 40,
+    marginTop: 50,
     borderBottomColor: "rgb(20,60,100)",
   },
   profileImage: {

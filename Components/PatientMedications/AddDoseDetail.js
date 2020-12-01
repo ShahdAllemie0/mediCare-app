@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 // Styling Components
 import { TextInput, TouchableOpacity, View } from "react-native";
-import { Text, Item } from "native-base";
-import { Button } from "react-native";
+import { Text, Item, Button } from "native-base";
+// import { Button } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import styles from "./styles";
 
@@ -49,10 +49,18 @@ const AddDoseDetail = ({
   };
 
   return (
-    <>
+    <View style={{width:300, alignItems:"center", borderTopWidth:1, borderTopColor:"#cce8e1"}}>
       <Text style={styles.authTitle}>Dose details</Text>
-      <Button onPress={showTimepicker} title="Select time" />
-      <Text style={styles.authTitle}>{time}</Text>
+        <TextInput
+          style={styles.authTextInput}
+          placeholder="Enter number of pills/day"
+          placeholderTextColor="#2a7c6c"
+          value={amount}
+          onChangeText={setAmount}
+          autoCapitalize="none"
+        />
+      <Text style={{color:"#2a7c6c", fontSize:22, marginBottom:5}}>{time}</Text>
+      <Button block style={{backgroundColor:"#75bab4"}} onPress={showTimepicker}><Text style={{textColor:"#75bab4"}}>Choose time</Text></Button>
       {show && (
         <DateTimePicker
           testID="dateTimePicker"
@@ -63,23 +71,13 @@ const AddDoseDetail = ({
           onChange={handleChange}
         />
       )}
-      <Item>
-        <TextInput
-          style={styles.authTextInput}
-          placeholder="Enter number of pills/day"
-          placeholderTextColor="#A6AEC1"
-          value={amount}
-          onChangeText={setAmount}
-          autoCapitalize="none"
-        />
-      </Item>
+
       <Button
-        title={"Add dose"}
-        button
-        style={styles.authButton}
+        block
+        style={{backgroundColor:"#2a7c6c", marginTop:5}}
         onPress={onSubmit}
-      ></Button>
-    </>
+      ><Text>Add Dose</Text></Button>
+    </View>
   );
 };
 
