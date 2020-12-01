@@ -40,6 +40,10 @@ const DosesList = ({ medications, navigation }) => {
           key={medication.id}
           medication={medication}
           navigation={navigation}
+          day={n}
+          date={dates[n]}
+          navigation={navigation}
+          medicationID={medication.id}
         />
       ))
     );

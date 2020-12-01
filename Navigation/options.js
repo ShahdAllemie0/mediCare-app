@@ -32,7 +32,7 @@ export const tabScreenOptions = ({ route }) => ({
         break;
 
       case USERMEDICATIONS:
-        iconName = "medical-bag";
+        iconName = "pill";
         break;
 
         case CALANDERANDTRACK:
