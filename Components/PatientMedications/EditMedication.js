@@ -86,7 +86,7 @@ const EditMedication = ({ navigation, user, route, updatePatientMedication, dele
     <Container>
       <Content> 
         <View style={styles.authContainer}>
-          <Text style={styles.authTitle}>Add Medication</Text>
+          <Text style={styles.authTitle}>Update Medication</Text>
           <Label>Schedualing</Label>
           <Item>
             <Input

@@ -55,7 +55,7 @@ const DoseTrack = ({ route, setConsumed, patientMedications }) => {
               <Text
                 style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
               >
-                {dose.amount} pill/s, at {dose.time}
+                {dose.amount} pill/s, at {dose.time.slice(0,5)}
               </Text>
               <Text>{ch}</Text>
               {today_day == new_dose.day ? (
