@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 // Styling Components
-import { TextInput, TouchableOpacity, View } from "react-native";
+import { TextInput, TouchableOpacity, View, FlatList } from "react-native";
 import { Button } from "native-base";
+
 import {
   Text,
   Input,
@@ -37,14 +38,19 @@ const AddMedication = ({
 
   // Components
   const options = medications.map((medication) => (
-    <Picker.Item label={medication.trade_name} value={medication} />
+    <FlatList label={medication.trade_name} value={medication} />
   ));
   const daysOptions = daysObj.map((day) => (
-    <DaysCheckbox day={day} setDays={setDays} days={days} />
+    <DaysCheckbox
+      day={day}
+      setDays={setDays}
+      days={days}
+      key={day.value + day.name}
+    />
   ));
   const dosesCards = doses.map((dose, index) => (
     <DoseItem
-      key={index}
+      key={dose.amount + dose.time}
       dose={dose}
       doses={doses}
       setDoses={setDoses}

@@ -17,8 +17,6 @@ const CheckTime = ({ consumed, dose }) => {
   let dose_mins = dose_time.slice(3, 5);
 
   dose_time = dose_time.slice(0, 2);
-  console.log(consumed_mins);
-  console.log(dose_mins);
 
   return (
     <Text>
