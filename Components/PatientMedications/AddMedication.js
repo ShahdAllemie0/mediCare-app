@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 // Styling Components
 import { TextInput, TouchableOpacity, View, FlatList } from "react-native";
+import { Button } from "native-base";
+
 import {
   Text,
   Input,
@@ -11,7 +13,7 @@ import {
   Container,
   Content,
 } from "native-base";
-import styles from "../Authentication/styles";
+import styles from "./styles";
 // Redux
 import { connect } from "react-redux";
 import { addPatientMedication } from "../../redux/actions";
@@ -112,35 +114,35 @@ const AddMedication = ({
     <Container>
       <Content>
         <View style={styles.authContainer}>
-          <Text style={styles.authTitle}>Add Medication</Text>
-          <Label>Choose Medication</Label>
           <Item picker>
             <Picker
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
-              style={{ width: undefined }}
-              placeholder="Select medication"
-              placeholderStyle={{ color: "#bfc6ea" }}
-              placeholderIconColor="#007aff"
+              style={{ width: 300, marginTop:20 }}
+              placeholder="Medications"
+              placeholderStyle={{ color: "#2a7c6c", fontSize:20 }}
+              placeholderIconColor="#2a7c6c"
               selectedValue={medication}
               onValueChange={setMedication}
             >
               {options}
             </Picker>
           </Item>
-          <Label>Schedualing</Label>
+          <Label style={{ color: "#2a7c6c", fontSize:20, marginTop:20, borderTopWidth:1, borderTopColor:"#cce8e1"}}>Scheduling</Label>
           <Item>
             <Input
               style={styles.authTextInput}
               placeholder="Duration"
-              placeholderTextColor="#A6AEC1"
+              placeholderTextColor="#75bab4"
               value={duration}
               name="duration"
               onChangeText={setDuration}
               autoCapitalize="none"
             />
           </Item>
-          {daysOptions}
+          <View style={{width:300}}>
+            {daysOptions}
+          </View>
           <AddDoseDetail
             doses={doses}
             setDoses={setDoses}
@@ -150,9 +152,9 @@ const AddMedication = ({
           />
           {dosesCards}
         </View>
-        <TouchableOpacity style={styles.authButton} onPress={submitMedication}>
-          <Text style={styles.authButtonText}>Add</Text>
-        </TouchableOpacity>
+        <Button full large style={{backgroundColor:"#2a7c6c", marginTop:10}} onPress={submitMedication}>
+          <Text style={{color:"#ffffff", fontSize:25}}>Add Medication</Text>
+        </Button>
       </Content>
     </Container>
   );

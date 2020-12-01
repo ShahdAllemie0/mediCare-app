@@ -26,8 +26,9 @@ const ConditionsList = ({ logout, conditions, navigation }) => {
     <>
       <View style={styles.authContainer}>
         <Text style={styles.authTitle}>Medical Conditions List:</Text>
-
+        <View style={{width:300}}>
         {conditionsList}
+        </View>
         <TouchableOpacity
           style={styles.authButton}
           onPress={() => navigation.navigate(HISTORY)}

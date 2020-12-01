@@ -1,11 +1,12 @@
 import React from "react";
 import { Icon, Item, View } from "native-base";
 
+
 import { USER, USERMEDICATIONS, CALANDERANDTRACK } from "./screenNames";
 
 export const stackScreenOptions = {
   headerStyle: {
-    backgroundColor: "#343A40",
+    backgroundColor: "#75BAB4",
   },
   headerTitleStyle: {
     fontWeight: "bold",
@@ -15,10 +16,10 @@ export const stackScreenOptions = {
 
 export const tabBarOptions = {
   showLabel: false,
-  activeTintColor: "white",
-  inactiveTintColor: "black",
+  activeTintColor: "#ffffff",
+  inactiveTintColor: "#ffffff",
   style: {
-    backgroundColor: "#343A40",
+    backgroundColor: "#2a7c6c",
   },
 };
 
@@ -29,6 +30,7 @@ export const tabScreenOptions = ({ route }) => ({
       case USER:
         iconName = "account";
         break;
+
       case USERMEDICATIONS:
         iconName = "account";
         break;

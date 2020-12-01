@@ -11,7 +11,7 @@ const DaysCheckbox = ({ day, setDays, days }) => {
             setChecked(true)
           } })
         }, []);
-  
+
       const handlePress = () => {
         setChecked(!checked);
         if (!checked) {
@@ -23,14 +23,12 @@ const DaysCheckbox = ({ day, setDays, days }) => {
         }
       };
       return (
-        <Item>
           <CheckBox
             disabled={true}
             title={day.name}
             checked={checked}
             onIconPress={handlePress}
           />
-        </Item>
       );
     };
 

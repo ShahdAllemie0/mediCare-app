@@ -8,7 +8,7 @@ import { login } from "../../redux/actions";
 import { SIGNUP } from "../../Navigation/screenNames";
 
 // Styling Components
-import { TextInput, TouchableOpacity, View } from "react-native";
+import { TextInput, TouchableOpacity, View, Image } from "react-native";
 import { Text } from "native-base";
 import styles from "./styles";
 
@@ -18,11 +18,12 @@ const Login = ({ navigation, login }) => {
 
   return (
     <View style={styles.authContainer}>
-      <Text style={styles.authTitle}>Login</Text>
+      <Image source={require('./../../assets/logo.png')} style={{width:190, height:190}} />
+      <Text style={styles.appName}>MediCare</Text>
       <TextInput
         style={styles.authTextInput}
         placeholder="Username"
-        placeholderTextColor="#A6AEC1"
+        placeholderTextColor="#2a7c6c"
         value={username}
         onChangeText={setUsername}
         autoCapitalize="none"
@@ -30,7 +31,7 @@ const Login = ({ navigation, login }) => {
       <TextInput
         style={styles.authTextInput}
         placeholder="Password"
-        placeholderTextColor="#A6AEC1"
+        placeholderTextColor="#2a7c6c"
         value={password}
         onChangeText={setPassword}
         autoCapitalize="none"

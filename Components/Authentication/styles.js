@@ -5,12 +5,15 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     alignItems: "center",
     padding: 20,
-    backgroundColor: "rgb(20,60,100)",
+    // backgroundColor: "#ffffff",
     marginTop: 30,
+    borderColor: "#2a7c6c",
+    borderWidth:1,
+    // borderRadius: 25,
   },
   authButtonText: {
-    color: "#FCFDFF",
-    fontWeight: "bold",
+    color: "#2a7c6c",
+    // fontWeight: "bold",
     fontSize: 18,
   },
   authContainer: {
@@ -18,12 +21,12 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FCFDFF",
+    backgroundColor: "#ffffff",
     paddingRight: 60,
     paddingLeft: 60,
   },
   authOther: {
-    color: "rgb(20,60,100)",
+    color: "#2a7c6c",
     marginTop: 15,
   },
   authTextInput: {
@@ -31,12 +34,12 @@ const styles = StyleSheet.create({
     textAlign: "left",
     height: 40,
     marginBottom: 30,
-    color: "rgb(20,60,100)",
-    borderBottomColor: "rgb(20,60,100)",
+    color: "#2a7c6c",
+    borderBottomColor: "#2a7c6c",
     borderBottomWidth: 1,
   },
   authTitle: {
-    color: "rgb(20,60,100)",
+    color: "#75bab4",
     fontSize: 24,
     marginBottom: 20,
     borderBottomColor: "rgb(20,60,100)",
@@ -49,8 +52,15 @@ const styles = StyleSheet.create({
   },
   profiletext: {
     textAlign: "left",
-    color: "rgb(20,60,100)",
+    color: "#2a7c6c",
     fontSize: 16,
+  },
+  appName: {
+    textAlign: "center",
+    color: "#2a7c6c",
+    fontSize: 30,
+    marginTop:20,
+    marginBottom: 50,
   },
 });
 

@@ -24,3 +24,5 @@ export const HISTORY = "History";
 export const CALENDAR = "Calendar";
 export const DOSE = "DoseItem";
 export const TRACK = "DoseTrack";
+
+export const LANDING = "LandingPage";

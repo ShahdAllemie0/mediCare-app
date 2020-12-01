@@ -9,6 +9,7 @@ import {
   CONDITIONS,
   HISTORY,
   USERCONDITIONS,
+
 } from "../screenNames";
 import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
@@ -27,11 +28,12 @@ const mapStateToProps = ({ user }) => ({
 export default connect(mapStateToProps)(function UserStack({ user }) {
   return (
     <Navigator
-      initialRouteName={user ? USERCONDITIONS : LOGIN}
+      initialRouteName={user ? LANDING : LOGIN}
       screenOptions={stackScreenOptions}
     >
       {user ? (
         <>
+
           <Screen
             name={USERCONDITIONS}
             component={UserConditions}
@@ -43,9 +45,10 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
             options={{ title: "History" }}
           />
           <Screen
+
             name={CONDITIONS}
             component={ConditionsList}
-            options={{ headerShown: false }}
+            options={{ headerShown: true }}
           />
         </>
       ) : (
@@ -58,6 +61,11 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
           <Screen
             name={SIGNUP}
             component={Signup}
+            options={{ headerShown: false }}
+          />
+          <Screen
+            name={LANDING}
+            component={LandingPage}
             options={{ headerShown: false }}
           />
         </>
