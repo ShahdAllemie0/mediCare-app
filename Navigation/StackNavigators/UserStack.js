@@ -30,12 +30,11 @@ const mapStateToProps = ({ user }) => ({
 export default connect(mapStateToProps)(function UserStack({ user }) {
   return (
     <Navigator
-      initialRouteName={user ? LANDING : LOGIN}
+      initialRouteName={ USERCONDITIONS }
       screenOptions={stackScreenOptions}
     >
-      {user ? (
+      { user ? (
         <>
-        
           <Screen
             name={USERCONDITIONS}
             component={UserConditions}
@@ -55,17 +54,6 @@ export default connect(mapStateToProps)(function UserStack({ user }) {
         </>
       ) : (
         <>
-          <Screen
-            name={LOGIN}
-            component={Login}
-            options={{ headerShown: false }}
-          />
-          <Screen
-            name={SIGNUP}
-            component={Signup}
-            options={{ headerShown: false }}
-          />
-
         </>
       )}
     </Navigator>
