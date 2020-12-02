@@ -43,23 +43,24 @@ const UserConditions = ({
   }
   return (
     <>
+    <View style={styles.authContainer}>
+    <View style={{width:400}}>
+      <Text style={styles.authTitle}>Your Medical Conditions
+      <Button
+        block
+        style={{
+          backgroundColor:"#ffffff",
+        }}
+        onPress={() => navigation.navigate(CONDITIONS)}
+      >
+        <Icon name='ios-create' style={{fontSize: 30, color:"#2a7c6c"}} />
+      </Button></Text>
+      {userConditionsList}
+    </View>
+    </View>
       <Text style={styles.authTitle}>Your Medication's History</Text>
       <History />
-      <View style={styles.authContainer}>
-      <View style={{width:400}}>
-        <Text style={styles.authTitle}>Your Medical Conditions
-        <Button
-          block
-          style={{
-            backgroundColor:"#ffffff",
-          }}
-          onPress={() => navigation.navigate(CONDITIONS)}
-        >
-          <Icon name='ios-create' style={{fontSize: 30, color:"#2a7c6c"}} />
-        </Button></Text>
-        {userConditionsList}
-      </View>
-      </View>
+
 
 
       <LogoutButton logout={logout} />
