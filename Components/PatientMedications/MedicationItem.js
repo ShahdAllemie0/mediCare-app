@@ -19,8 +19,8 @@ const MedicationItem = ({ medication, navigation }) => {
       onPress={() => navigation.navigate(Edit_MEDICATION, {medication})}
     >
       <Content>
-        <Card>
-          <CardItem header>
+        <Card style={{borderRadius:10}}>
+          <CardItem style={{borderRadius:10}} header>
             <Left>
               <Body>
                 <Text

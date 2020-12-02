@@ -25,8 +25,8 @@ const DoseItem = ({ dose, navigation, medicationID }) => {
       onPress={() => navigation.navigate(TRACK, { dose, medicationID })}
     >
       <Content>
-        <Card>
-          <CardItem header>
+        <Card style={{borderRadius:10}}>
+          <CardItem style={{borderRadius:10}} header>
             <Left>
               <Body>
                 <Text

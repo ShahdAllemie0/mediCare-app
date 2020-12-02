@@ -9,8 +9,8 @@ const HistoryItem = ({ history }) => (
   <>
     <ListItem>
       <Content>
-        <Card>
-          <CardItem header>
+        <Card style={{borderRadius:10}}>
+          <CardItem style={{borderRadius:10}} header>
             <Left>
               <Body>
                 <Text style={{ color: "#2a7c6c", fontSize: 20, fontWeight: "bold"}}>
