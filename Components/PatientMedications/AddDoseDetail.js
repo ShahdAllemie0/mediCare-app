@@ -7,6 +7,8 @@ import { Text, Item, Button } from "native-base";
 // import { Button } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import styles from "./styles";
+import Modal from "react-native-modal"
+import { FontAwesome } from '@expo/vector-icons'; 
 
 const AddDoseDetail = ({
   setDoses,
@@ -41,12 +43,45 @@ const AddDoseDetail = ({
 
   const handleChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    setShow(Platform.OS === "ios");
+    setShow(false);
     setDate(currentDate);
 
     const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}`
     setTime(formattedTime);
   };
+
+  const setIosAndroidPicker = () => {
+    if(Platform.OS === "ios"){
+      return (
+          <Modal 
+        isVisible = {show}
+      >
+        <View style={{backgroundColor:'#fff'}}>
+        <FontAwesome style={{margin:10}} onPress={() => setShow(false)} name="close" size={24} color="#2a7c6c" />
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode="time"
+            display="default"
+            onChange={handleChange}
+          />
+        </View>
+        
+      </Modal>
+    )} else {
+      return (
+        <DateTimePicker
+          testID="dateTimePicker"
+          value={date}
+          mode="time"
+          is24Hour={true}
+          display="default"
+          onChange={handleChange}
+        />
+      )
+    }
+    
+  }
 
   return (
     <View style={{width:300, alignItems:"center", borderTopWidth:1, borderTopColor:"#cce8e1"}}>
@@ -61,17 +96,7 @@ const AddDoseDetail = ({
         />
       <Text style={{color:"#2a7c6c", fontSize:22, marginBottom:5}}>{time}</Text>
       <Button block style={{backgroundColor:"#75bab4"}} onPress={showTimepicker}><Text style={{textColor:"#75bab4"}}>Choose time</Text></Button>
-      {show && (
-        <DateTimePicker
-          testID="dateTimePicker"
-          value={date}
-          mode="time"
-          is24Hour={true}
-          display="default"
-          onChange={handleChange}
-        />
-      )}
-
+      {show && (setIosAndroidPicker())}
       <Button
         block
         style={{backgroundColor:"#2a7c6c", marginTop:5}}
