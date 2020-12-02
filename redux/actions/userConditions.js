@@ -18,7 +18,6 @@ export const fetchUserConditions = () => async (dispatch) => {
 export const setUserConditions = (condition_id) => async (dispatch) => {
   try {
     const res = await instance.post("/user/add/condition/", condition_id);
-    Alert.alert("Added");
     dispatch({
       type: SET_CONDITIONS,
       payload: res.data,
@@ -33,7 +32,6 @@ export const setUserConditions = (condition_id) => async (dispatch) => {
 export const deleteUserConditions = (condition_id) => async (dispatch) => {
   try {
     const res = await instance.post("/user/delete/condition/", condition_id);
-    Alert.alert("Deleted");
     dispatch({
       type: DELETE_CONDITIONS,
       payload: res.data,

@@ -39,7 +39,7 @@ export default connect(mapStateToProps)(function CalanderStack({ user }) {
         <Screen
         name={TRACK}
         component={DoseTrack}
-        options={{ headerShown: false }}
+        options={{ headerShown: true }}
         />
     </Navigator>
   );

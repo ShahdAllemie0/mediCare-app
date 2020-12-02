@@ -22,15 +22,8 @@ const MedicationList = ({ medications, navigation }) => {
         </List>
 
     </Content>
-    <Container style={{
-      justifyContent: "center",
-      alignItems: "center",
-      flexDirection: 'column',
-      flex: 1
-    }}>
 
       <Button
-      iconRight
       onPress={() => navigation.navigate(ADD_MEDICATION)}
       style={{
         backgroundColor:"#2a7c6c",
@@ -47,7 +40,6 @@ const MedicationList = ({ medications, navigation }) => {
         <Icon name='add' style={{marginLeft: 0, marginRight: 0, fontSize: 40}} />
       </Button>
 
-    </Container>
     </Container>
   );
 };

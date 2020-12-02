@@ -38,7 +38,7 @@ const AddMedication = ({
 
   // Components
   const options = medications.map((medication) => (
-    <FlatList label={medication.trade_name} value={medication} />
+    <FlatList label={medication.trade_name.toLowerCase()} value={medication} />
   ));
   const daysOptions = daysObj.map((day) => (
     <DaysCheckbox
@@ -119,8 +119,8 @@ const AddMedication = ({
               mode="dropdown"
               iosIcon={<Icon name="arrow-down" />}
               style={{ width: 300, marginTop:20 }}
-              placeholder="Medications"
-              placeholderStyle={{ color: "#2a7c6c", fontSize:20 }}
+              placeholder="Medication"
+              placeholderStyle={{ color: "#2a7c6c", fontSize:15 }}
               placeholderIconColor="#2a7c6c"
               selectedValue={medication}
               onValueChange={setMedication}
@@ -128,12 +128,12 @@ const AddMedication = ({
               {options}
             </Picker>
           </Item>
-          <Label style={{ color: "#2a7c6c", fontSize:20, marginTop:20, borderTopWidth:1, borderTopColor:"#cce8e1"}}>Scheduling</Label>
+          <Label style={{ color: "#2a7c6c", fontSize:20, fontWeight:"bold", marginTop:20, borderTopWidth:1}}>Scheduling</Label>
           <Item>
             <Input
               style={styles.authTextInput}
               placeholder="Duration"
-              placeholderTextColor="#75bab4"
+              placeholderTextColor="#2a7c6c"
               value={duration}
               name="duration"
               onChangeText={setDuration}

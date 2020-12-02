@@ -49,11 +49,10 @@ const AddDoseDetail = ({
   };
 
   return (
-    <View style={{width:300, alignItems:"center", borderTopWidth:1, borderTopColor:"#cce8e1"}}>
-      <Text style={styles.authTitle}>Dose details</Text>
+    <View style={{width:300, alignItems:"center", marginTop:10}}>
         <TextInput
           style={styles.authTextInput}
-          placeholder="Enter number of pills/day"
+          placeholder="# of pills/day"
           placeholderTextColor="#2a7c6c"
           value={amount}
           onChangeText={setAmount}
