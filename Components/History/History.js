@@ -1,5 +1,5 @@
 import React from "react";
-import { List, Content, Spinner, Container, ListItem } from "native-base";
+import { List, Content, Spinner, Container, ListItem, Text } from "native-base";
 import { connect } from "react-redux";
 
 import HistoryItem from "./HistoryItem";
@@ -12,7 +12,14 @@ const HistoryList = ({ history, loading, navigation }) => {
   return (
     <Container>
       <Content >
-        <List>{historyCards}</List>
+      {history.length? (
+          <List>{historyCards}</List>
+        ):(
+          <Text style={{ textAlign:"center", padding:30, color: "#C0C0C0", fontSize: 20, fontWeight: "bold" }}
+          >
+            No history
+            </Text>
+        )}
       </Content>
     </Container>
   );

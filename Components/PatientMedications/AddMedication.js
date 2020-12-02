@@ -38,7 +38,7 @@ const AddMedication = ({
 
   // Components
   const options = medications.map((medication) => (
-    <FlatList label={medication.trade_name.toLowerCase()} value={medication} />
+    <FlatList label={medication.trade_name} value={medication} />
   ));
   const daysOptions = daysObj.map((day) => (
     <DaysCheckbox
@@ -107,8 +107,6 @@ const AddMedication = ({
       navigation
     );
   };
-
-  //   if(!user) navigation.replace("Login")
 
   return (
     <Container>
