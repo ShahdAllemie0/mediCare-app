@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { List, Content, Button, Text, Container, ListItem } from "native-base";
+import { List, Content, Button, Text, Container, ListItem, Card, CardItem, Left, Body } from "native-base";
 import { TextInput, TouchableOpacity, View } from "react-native";
 import styles from "../Authentication/styles";
 import { MEDICATIONS } from "../../Navigation/screenNames";
@@ -41,7 +41,29 @@ const MedicationInteractions = ({
   );
 
   const drugDiseaseInteractionsList = drugDiseaseInteractions?.map(
-    (condition) => <Text>- {condition.name}</Text>
+    (condition) => (
+
+      <ListItem
+        button
+      >
+        <Content>
+          <Card>
+            <CardItem header>
+              <Left>
+                <Body>
+                  <Text
+                    style={{ color: "#2a7c6c", fontSize: 20, fontWeight: "bold", textAlign:"center" }}
+                  >
+                    {condition.name}
+                  </Text>
+                </Body>
+              </Left>
+            </CardItem>
+          </Card>
+        </Content>
+      </ListItem>
+
+    )
   );
 
   return (
@@ -73,7 +95,7 @@ const MedicationInteractions = ({
         )}
         {drugDiseaseInteractions && (
           <>
-            <Text style={{textAlign:"center", color:"#2a7c6c"}}>There is interaction with your medical condition</Text>
+            <Text style={{textAlign:"center", color:"#2a7c6c", padding:8}}>{medication.medication.trade_name} interact with your following medical condition/s</Text>
             {drugDiseaseInteractionsList}
           </>
         )}
