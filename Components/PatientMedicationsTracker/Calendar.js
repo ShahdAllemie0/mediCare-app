@@ -34,7 +34,8 @@ const DosesList = ({ medications, navigation }) => {
     }
   }
 
-  const [medicationList, setMedicationList] = useState();
+  const [medicationList, setMedicationList] = useState([]);
+  console.log("-----list------",medicationList, "---END-------")
   useEffect(() => {
     setMedicationList(
       medications.map((medication) => (
@@ -105,7 +106,7 @@ const DosesList = ({ medications, navigation }) => {
         ></FlatList>
       </Header>
       <Content>
-        <List>{medicationList}</List>
+          <List>{medicationList}</List>
       </Content>
     </Container>
   );
@@ -113,7 +114,7 @@ const DosesList = ({ medications, navigation }) => {
 
 const mapStateToProps = (state) => {
   return {
-    medications: state.medications.patientMedications,
+    medications: state.medications.patientMedications.filter(medication => medication.isActive === true),
   };
 };
 

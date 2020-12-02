@@ -5,7 +5,7 @@ import { Text, Input, Item, Picker, Icon, Label, Container, Content, Button } fr
 import styles from "./styles";
 // Redux
 import { connect } from "react-redux"
-import { updatePatientMedication, deleteMedication, addDose, deleteDose } from "../../redux/actions"
+import { updatePatientMedication, deactivatePatientMedication, addDose, deleteDose } from "../../redux/actions"
 // Data
 import daysObj from "./daysObj"
 // Components
@@ -14,7 +14,7 @@ import AddDoseDetail from "./AddDoseDetail"
 import DoseItem from "./DoseItem";
 
 
-const EditMedication = ({ navigation, user, route, updatePatientMedication, deleteMedication, addDose, deleteDose }) => {
+const EditMedication = ({ navigation, user, route, updatePatientMedication, deactivatePatientMedication, addDose, deleteDose }) => {
     const { medication } = route.params
     const initialDays = daysObj.filter(day => medication.doses.find(dose => dose.day == day.value ))
     const initialDoses = medication.doses.filter(dose => dose.day == initialDays[0].value)
@@ -24,6 +24,8 @@ const EditMedication = ({ navigation, user, route, updatePatientMedication, dele
   const [duration, setDuration] = useState(medication.duration.toString());
   const [doses, setDoses] = useState(initialDoses);
   const [totalAmount, setTotalAmount] = useState(initialTotalAmount)
+  const todayDate = new Date()
+  const formatedDate = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`;
 
   // Components
   const daysOptions = daysObj.map((day, index) =>
@@ -115,7 +117,7 @@ const EditMedication = ({ navigation, user, route, updatePatientMedication, dele
         </Button>
         <Button full large
           style={{backgroundColor:"#2a7c6c", marginTop:10}}
-          onPress={() => deleteMedication(medication.id, navigation)}
+          onPress={() => deactivatePatientMedication({isActive: false, end: formatedDate},medication.id, navigation)}
         >
           <Text style={{color:"#ffffff", fontSize:20}}>Delete</Text>
         </Button>
@@ -137,8 +139,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updatePatientMedication: ( newMedication, medicationID, navigation) =>
       dispatch(updatePatientMedication( newMedication, medicationID, navigation)),
-    deleteMedication: (medicationID, navigation) =>
-      dispatch(deleteMedication(medicationID, navigation)),
+    deactivatePatientMedication: (data, medicationID, navigation) =>
+      dispatch(deactivatePatientMedication(data, medicationID, navigation)),
     deleteDose: (doseID) => dispatch(deleteDose(doseID)),
     addDose: (dose) => dispatch(addDose(dose)),
   };

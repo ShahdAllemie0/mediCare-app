@@ -9,17 +9,24 @@ import MedicationCard from "./MedicationItem";
 
 const MedicationList = ({ medications, navigation }) => {
   // send one item from list to display in card
-  const medicationList = medications.map((medication) => (
+  const medicationList = medications.map((medication) => 
     <MedicationCard key={medication.id} medication={medication} navigation={navigation}/>
-  ));
+     );
 
   return (
     <Container>
     <Content>
-
-      <List>
+      {medications.length ? (
+        <List>
         {medicationList}
         </List>
+      ):(
+        <Text style={{ textAlign:"center", padding:30, color: "#C0C0C0", fontSize: 20, fontWeight: "bold" }}
+        >
+          No medications
+          </Text>
+      )}
+      
 
     </Content>
 
@@ -46,7 +53,7 @@ const MedicationList = ({ medications, navigation }) => {
 
 const mapStateToProps = (state) => {
     return {
-        medications: state.medications.patientMedications
+        medications: state.medications.patientMedications.filter(medication => medication.isActive === true)
     }
 }
 

@@ -99,8 +99,31 @@ export const deleteMedication = (medicationID, navigation) => async (
     const medication = res.data;
     console.log("*****----- updated medication ------***** ", medication);
     dispatch(fetchPatientMedications());
+    dispatch(fetchHistory());
     navigation.goBack();
   } catch (err) {
     console.error("wrong ??", err);
   }
 };
+
+export const deactivatePatientMedication = (
+  data,
+  medication_id,
+  navigation
+) => async (dispatch) => {
+  try {
+    const res = await instance.patch(
+      `deactivate/${medication_id}/medication/`,
+      data
+    );
+    const medication = res.data;
+    console.log("*****-----   DEACTIVATED medication ------***** ", medication);
+    dispatch(fetchPatientMedications());
+    dispatch(fetchHistory());
+    navigation.goBack();
+  } catch (err) {
+    console.error("wrong ??", err);
+  }
+};
+
+// deactivate/53/medication/

@@ -14,9 +14,9 @@ const HistoryItem = ({ history }) => (
             <Left>
               <Body>
                 <Text style={{ color: "#2a7c6c", fontSize: 20, fontWeight: "bold"}}>
-                  {history.medication.drug.toLowerCase()}
+                  {history.medication.trade_name}
                 </Text>
-                <Text style={{ color:"#75bab4" }}>{history.medication.trade_name.toLowerCase()}</Text>
+                <Text style={{ color:"#75bab4" }}>{history.medication.drug}</Text>
 
               </Body>
             </Left>
