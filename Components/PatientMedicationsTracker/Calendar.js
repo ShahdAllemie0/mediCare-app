@@ -113,7 +113,7 @@ const DosesList = ({ medications, navigation }) => {
 
 const mapStateToProps = (state) => {
   return {
-    medications: state.medications.patientMedications,
+    medications: state.medications.patientMedications.filter(medication => medication.isActive === true),
   };
 };
 

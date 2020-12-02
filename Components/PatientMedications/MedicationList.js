@@ -9,9 +9,16 @@ import MedicationCard from "./MedicationItem";
 
 const MedicationList = ({ medications, navigation }) => {
   // send one item from list to display in card
-  const medicationList = medications.map((medication) => (
-    <MedicationCard key={medication.id} medication={medication} navigation={navigation}/>
-  ));
+  const medicationList = medications.map((medication) => {
+    console.log("------ isActive -------",medication.isActive, "------ END -------")
+    if(medication.isActive){
+      return (
+        <MedicationCard key={medication.id} medication={medication} navigation={navigation}/>
+      )
+    } else {
+      return null
+    }
+    });
 
   return (
     <Container>
