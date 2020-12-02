@@ -8,11 +8,11 @@ const LogoutButton = ({ logout }) => (
   large
   onPress={logout}
   style={{
-    backgroundColor:"#2a7c6c",
+    backgroundColor:"#ffffff",
     justifyContent: "center",
   }}
   >
-    <Icon name='log-out' style={{marginLeft: 0, marginRight: 0, fontSize: 40}} />
+    <Icon name='log-out' style={{marginLeft: 0, marginRight: 0, fontSize: 40, color:"#2a7c6c"}} />
   </Button>
 
 

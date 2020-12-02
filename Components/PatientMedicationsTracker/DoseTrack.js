@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CheckTime from "./CheckTime";
 import { connect } from "react-redux";
-import { Content, Card, CardItem, Text, Left, Body } from "native-base";
-import { Button } from "react-native";
+import { Content, Card, CardItem, Text, Left, Body, Button } from "native-base";
+// import { Button } from "react-native";
 import { setConsumed } from "../../redux/actions";
 
 const DoseTrack = ({ route, setConsumed, patientMedications }) => {
@@ -53,19 +53,24 @@ const DoseTrack = ({ route, setConsumed, patientMedications }) => {
           <Left>
             <Body>
               <Text
-                style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
+                style={{ color: "#2a7c6c", fontSize: 20, fontWeight: "bold", textAlign:"center" }}
               >
                 {dose.amount} pill/s, at {dose.time.slice(0, 5)}
+              </Text>
+              <Text
+                style={{ color: "#75bab4", fontSize: 20, textAlign:"center" }}
+              >
+                {dose.time.slice(0, 5)}
               </Text>
               <Text>{ch}</Text>
               {today_day == new_dose.day ? (
                 buttonValue().length ? (
-                  <Button title={"Consumed"} />
+                  <Button block disabled><Text>Consumed</Text></Button>
                 ) : (
-                  <Button onPress={onClick} title={"Take it"} />
+                  <Button block style={{ backgroundColor:"#2a7c6c" }} onPress={onClick}><Text>Consume</Text></Button>
                 )
               ) : (
-                <Button title={"NOT TODAY"} />
+                <Button block disabled><Text>Not Today</Text></Button>
               )}
             </Body>
           </Left>

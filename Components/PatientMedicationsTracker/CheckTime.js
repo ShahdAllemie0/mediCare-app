@@ -22,22 +22,22 @@ const CheckTime = ({ consumed, dose }) => {
     <Text>
       {consumed_date == today_date ? (
         consumed_hours == dose_time ? (
-          <Text style={{ color: "green", fontSize: 20, fontWeight: "bold" }}>
+          <Text style={{ color: "green", fontSize: 30, fontWeight: "bold", textAlign:"center" }}>
             on time
           </Text>
         ) : consumed_hours - dose_time == 1 ||
           consumed_hours - dose_time == -1 ? (
           consumed_mins - dose_mins < 60 || consumed_mins - dose_mins < -60 ? (
-            <Text style={{ color: "green", fontSize: 20, fontWeight: "bold" }}>
+            <Text style={{ color: "green", fontSize: 30, fontWeight: "bold", textAlign:"center" }}>
               on time
             </Text>
           ) : (
-            <Text style={{ color: "orange", fontSize: 20, fontWeight: "bold" }}>
+            <Text style={{ color: "orange", fontSize: 30, fontWeight: "bold", textAlign:"center" }}>
               late ({parseInt(consumed_hours) - parseInt(dose_time)} hours)
             </Text>
           )
         ) : (
-          <Text style={{ color: "orange", fontSize: 20, fontWeight: "bold" }}>
+          <Text style={{ color: "orange", fontSize: 30, fontWeight: "bold", textAlign:"center" }}>
             late ({parseInt(consumed_hours) - parseInt(dose_time)} hours)
           </Text>
         )
