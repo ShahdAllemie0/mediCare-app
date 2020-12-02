@@ -24,7 +24,7 @@ const LandingPage = (navigation) => {
     <>
       <View style={styles.container}>
         <Text style={styles.title}>Welcome to</Text>
-        <Image source={require('./../../assets/logo.png')} style={{width:190, height:190}} />
+        <Image source={require('./../../assets/logo3.png')} style={{width:190, height:190}} />
         <Text style={styles.appName}>MediCare</Text>
       </View>
     </>

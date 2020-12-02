@@ -26,8 +26,8 @@ const UserConditions = ({
     userConditionsList = userConditions.userConditions.conditions.map(
       (condition) => {
         return (
-          <Card>
-            <CardItem header>
+          <Card style={{borderRadius:10}}>
+            <CardItem style={{borderRadius:10}} header>
               <Left>
                 <Body>
                   <Text style={{ color: "#2a7c6c", textAlign:"center", fontSize:19 }}>

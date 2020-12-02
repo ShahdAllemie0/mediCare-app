@@ -18,7 +18,7 @@ const Login = ({ navigation, login }) => {
 
   return (
     <View style={styles.authContainer}>
-      <Image source={require('./../../assets/logo.png')} style={{width:190, height:190}} />
+      <Image source={require('./../../assets/logo3.png')} style={{width:190, height:190}} />
       <Text style={styles.appName}>MediCare</Text>
       <TextInput
         style={styles.authTextInput}
