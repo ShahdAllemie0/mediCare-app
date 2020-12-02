@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FCFDFF",
     paddingRight: 60,
     paddingLeft: 60,
-    paddingTop:30,
   },
   authOther: {
     color: "rgb(20,60,100)",
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
   authTitle: {
     color: "#2a7c6c",
     fontSize: 24,
-    paddingBottom: 20,
+    paddingTop: 20,
     textAlign:"center",
   },
   profileImage: {

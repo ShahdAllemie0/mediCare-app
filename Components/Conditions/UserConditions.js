@@ -9,7 +9,7 @@ import History from "../History/History";
 import { logout, fetchUserConditions } from "../../redux/actions";
 import { TouchableOpacity, View } from "react-native";
 import { CheckBox } from "react-native-elements";
-import { Text, Card, CardItem, Left, Body } from "native-base";
+import { Text, Card, CardItem, Left, Body, Button, Icon } from "native-base";
 // Style
 import styles from "./styles";
 
@@ -30,7 +30,7 @@ const UserConditions = ({
             <CardItem header>
               <Left>
                 <Body>
-                  <Text style={{ color: "#2a7c6c", textAlign:"center" }}>
+                  <Text style={{ color: "#2a7c6c", textAlign:"center", fontSize:19 }}>
                     {condition.name}
                   </Text>
                 </Body>
@@ -43,21 +43,24 @@ const UserConditions = ({
   }
   return (
     <>
-      <View style={styles.authContainer}>
-      <View style={{width:300}}>
-        {userConditionsList}
-      </View>
-
-
-        <TouchableOpacity
-          style={styles.authButton}
-          onPress={() => navigation.navigate(CONDITIONS)}
-        >
-          <Text style={styles.authButtonText}>Edit</Text>
-        </TouchableOpacity>
-      </View>
       <Text style={styles.authTitle}>Your Medication's History</Text>
       <History />
+      <View style={styles.authContainer}>
+      <View style={{width:400}}>
+        <Text style={styles.authTitle}>Your Medical Conditions
+        <Button
+          block
+          style={{
+            backgroundColor:"#ffffff",
+          }}
+          onPress={() => navigation.navigate(CONDITIONS)}
+        >
+          <Icon name='ios-create' style={{fontSize: 30, color:"#2a7c6c"}} />
+        </Button></Text>
+        {userConditionsList}
+      </View>
+      </View>
+
 
       <LogoutButton logout={logout} />
     </>

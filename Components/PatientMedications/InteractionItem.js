@@ -21,7 +21,7 @@ const InteractionItem = ({ medication }) => {
             <Left>
               <Body>
                 <Text
-                  style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
+                  style={{ color: "#2a7c6c", fontSize: 20, fontWeight: "bold", textAlign:"center" }}
                 >
                   {medication.medication.trade_name}
                 </Text>

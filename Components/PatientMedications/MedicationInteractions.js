@@ -47,6 +47,7 @@ const MedicationInteractions = ({
   return (
     <Container>
       <Content>
+        <Text style={{fontSize:20, color:"#2a7c6c", paddingTop:20, textAlign:"center", fontWeight:"bold"}}>You're trying to add</Text>
         <InteractionCard
           key={medication.id}
           medication={medication}
@@ -54,8 +55,8 @@ const MedicationInteractions = ({
         />
         {drugDrugInteractions && (
           <>
-            <Text>
-              Taking these medications with {medication.medication.trade_name}
+            <Text style={{textAlign:"center", color:"#2a7c6c", padding:8}}>
+              But consuming {medication.medication.trade_name} with the following list of medications
               produce severe interactions, you should consult your doctor
             </Text>
             <List>{drugDrugInteractionsList}</List>
@@ -63,16 +64,16 @@ const MedicationInteractions = ({
         )}
         {drugDrugTimeInteractions && (
           <>
-            <Text>
-              You shouldn't take these medications with{" "}
-              {medication.medication.trade_name} in the same time
+            <Text style={{textAlign:"center", color:"#2a7c6c", padding:8}}>
+              But you shouldn't consume {medication.medication.trade_name} with the following list of medications
+              at the same time
             </Text>
             <List>{drugDrugTimeInteractionsList}</List>
           </>
         )}
         {drugDiseaseInteractions && (
           <>
-            <Text>There is interaction with your medical condition</Text>
+            <Text style={{textAlign:"center", color:"#2a7c6c"}}>There is interaction with your medical condition</Text>
             {drugDiseaseInteractionsList}
           </>
         )}
@@ -81,7 +82,7 @@ const MedicationInteractions = ({
           onPress={() => navigation.navigate(MEDICATIONS)}
         >
           <Text style={styles.authButtonText}>
-            I consult my doctor ignore notifications
+            I consulted my doctor ignore interactions
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -89,7 +90,7 @@ const MedicationInteractions = ({
           onPress={() => deleteMedication(medication.id, navigation)}
         >
           <Text style={styles.authButtonText}>
-            Remove {medication.medication.trade_name}
+            Cancel {medication.medication.trade_name.toLowerCase()} addition
           </Text>
         </TouchableOpacity>
       </Content>

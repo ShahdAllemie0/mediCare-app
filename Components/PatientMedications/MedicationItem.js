@@ -8,6 +8,7 @@ import {
   Left,
   Body,
   ListItem,
+  Right
 } from "native-base";
 import { Edit_MEDICATION } from "../../Navigation/screenNames";
 
@@ -23,12 +24,20 @@ const MedicationItem = ({ medication, navigation }) => {
             <Left>
               <Body>
                 <Text
-                  style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
+                  style={{ color: "#2a7c6c", fontSize: 20, fontWeight: "bold" }}
                 >
-                  {medication.medication.trade_name}
+                  {medication.medication.trade_name.toLowerCase()}
                 </Text>
+
               </Body>
             </Left>
+            <Right>
+            <Text
+              style={{ color: "#75bab4", fontSize: 20 }}
+            >
+              {medication.medication.drug.toLowerCase()}
+            </Text>
+            </Right>
           </CardItem>
         </Card>
       </Content>

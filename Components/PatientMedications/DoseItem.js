@@ -10,9 +10,11 @@ import {
   ListItem,
   Item,
   Right,
+  Button,
+  Icon
 } from "native-base";
 
-import { Button } from "react-native"
+// import { Button } from "react-native"
 
 const DoseItem = ({ dose, navigation, doses, setDoses, totalAmount, setTotalAmount }) => {
 
@@ -31,14 +33,19 @@ const DoseItem = ({ dose, navigation, doses, setDoses, totalAmount, setTotalAmou
             <Left>
               <Body>
                 <Text
-                  style={{ color: "black", fontSize: 20, fontWeight: "bold" }}
+                  style={{ color: "#2a7c6c", fontSize: 20, fontWeight: "bold" }}
                 >
-                  {dose.amount} pills at {dose.time}
+                  {dose.amount} pill/s
+                </Text>
+                <Text
+                  style={{ color: "#75bab4", fontSize: 20 }}
+                >
+                  {dose.time}
                 </Text>
               </Body>
             </Left>
             <Right>
-            <Button title="Delete" onPress={handleDelete}></Button>
+            <Button onPress={handleDelete} style={{backgroundColor:"#75bab4"}}><Icon name="trash" /></Button>
             </Right>
           </CardItem>
         </Card>
