@@ -11,7 +11,7 @@ const HistoryList = ({ history, loading, navigation }) => {
 
   return (
     <Container>
-      <Content>
+      <Content >
         <List>{historyCards}</List>
       </Content>
     </Container>

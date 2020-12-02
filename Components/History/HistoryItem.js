@@ -21,7 +21,8 @@ const HistoryItem = ({ history }) => (
               </Body>
             </Left>
             <Right>
-              <Text style={{ color: "#2a7c6c"}}>{history.duration} weeks</Text>
+              <Text style={{ color: "#2a7c6c"}}>from : {history.begin}</Text>
+              <Text style={{ color: "#2a7c6c"}}>to : {history.end}</Text>
             </Right>
           </CardItem>
         </Card>

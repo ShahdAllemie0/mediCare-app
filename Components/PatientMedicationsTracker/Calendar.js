@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import {
-  List,
-  Content,
-  Button,
-  Text,
-  Container,
-  ListItem,
-  Header,
-} from "native-base";
+import { List, Content, Text, Container, View, Header } from "native-base";
 
 // components
 import DoseMedItem from "./DoseMedItem";
+import { FlatList, StyleSheet, TouchableOpacity, Animated } from "react-native";
 
 const DosesList = ({ medications, navigation }) => {
   var date = new Date();
+  const [day, setDay] = useState();
   var n = date.getDay();
-
+  var dayList = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   // Create a list of this week's dates
   var dates = [];
   dates[n] = date;
@@ -49,7 +51,7 @@ const DosesList = ({ medications, navigation }) => {
     );
   }, [medications]);
   const onClick = (day) => {
-    // alert(dates[day]);
+    setDay(day);
     setMedicationList(
       medications.map((medication) => (
         <DoseMedItem
@@ -63,191 +65,44 @@ const DosesList = ({ medications, navigation }) => {
       ))
     );
   };
-
+  let flatListRef;
   return (
     <Container>
-      <Header>
-
-      {n==0 ?
-        (<Button
-        onPress={() => onClick("0")}
-        style={{
-          height: 50,
-          width: 50,
-          backgroundColor: "#2a7c6c",
-          borderRadius: 25,
-        }}
-      >
-        <Text>S</Text>
-      </Button>):
-      (<Button
-      onPress={() => onClick("0")}
-      style={{
-        height: 50,
-        width: 50,
-        backgroundColor: "#75BAB4",
-        borderRadius: 25,
-      }}
-      >
-      <Text>S</Text>
-      </Button>)
-      }
-
-        {n==1 ?
-          (<Button
-          onPress={() => onClick("1")}
-          style={{
-            height: 50,
-            width: 50,
-            backgroundColor: "#2a7c6c",
-            borderRadius: 25,
+      <Header style={{ backgroundColor: "#75bab4" }}>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          horizontal={true}
+          bounces={false}
+          data={dayList}
+          decelerationRate={20}
+          snapToInterval={100}
+          ref={(ref) => {
+            flatListRef = ref;
           }}
-        >
-          <Text>M</Text>
-        </Button>):
-        (<Button
-        onPress={() => onClick("1")}
-        style={{
-          height: 50,
-          width: 50,
-          backgroundColor: "#75BAB4",
-          borderRadius: 25,
-        }}
-      >
-        <Text>M</Text>
-      </Button>)
-      }
-
-
-
-        {n==2 ?
-          (<Button
-          onPress={() => onClick("2")}
-          style={{
-            height: 50,
-            width: 50,
-            backgroundColor: "#2a7c6c",
-            borderRadius: 25,
+          keyExtractor={(item) => item}
+          contentContainerStyle={{ alignItems: "center" }}
+          scrollEventThrottle={16}
+          renderItem={({ item, index }) => {
+            return (
+              <View>
+                <TouchableOpacity
+                  onPress={() => {
+                    onClick(index);
+                  }}
+                >
+                  <Text
+                    style={{
+                      ...styles.text,
+                      color: day == index ? "white" : "#2a7c6c",
+                    }}
+                  >
+                    {item}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            );
           }}
-        >
-          <Text>T</Text>
-        </Button>):
-        (<Button
-        onPress={() => onClick("2")}
-        style={{
-          height: 50,
-          width: 50,
-          backgroundColor: "#75BAB4",
-          borderRadius: 25,
-        }}
-      >
-        <Text>T</Text>
-      </Button>)
-      }
-
-      {n==3 ?
-        (<Button
-        onPress={() => onClick("3")}
-        style={{
-          height: 50,
-          width: 50,
-          backgroundColor: "#2a7c6c",
-          borderRadius: 25,
-        }}
-      >
-        <Text>W</Text>
-      </Button>):
-      (<Button
-      onPress={() => onClick("3")}
-      style={{
-        height: 50,
-        width: 50,
-        backgroundColor: "#75BAB4",
-        borderRadius: 25,
-      }}
-    >
-      <Text>W</Text>
-    </Button>)
-    }
-
-
-    {n==4 ?
-      (<Button
-      onPress={() => onClick("4")}
-      style={{
-        height: 50,
-        width: 50,
-        backgroundColor: "#2a7c6c",
-        borderRadius: 25,
-      }}
-    >
-      <Text>T</Text>
-    </Button>):
-    (<Button
-    onPress={() => onClick("4")}
-    style={{
-      height: 50,
-      width: 50,
-      backgroundColor: "#75BAB4",
-      borderRadius: 25,
-    }}
-  >
-    <Text>T</Text>
-  </Button>)
-  }
-
-
-  {n==5 ?
-    (<Button
-    onPress={() => onClick("5")}
-    style={{
-      height: 50,
-      width: 50,
-      backgroundColor: "#2a7c6c",
-      borderRadius: 25,
-    }}
-  >
-    <Text>F</Text>
-  </Button>):
-  (<Button
-  onPress={() => onClick("5")}
-  style={{
-    height: 50,
-    width: 50,
-    backgroundColor: "#75BAB4",
-    borderRadius: 25,
-  }}
->
-  <Text>F</Text>
-</Button>)
-}
-
-
-{n==6 ?
-  (<Button
-  onPress={() => onClick("6")}
-  style={{
-    height: 50,
-    width: 50,
-    backgroundColor: "#2a7c6c",
-    borderRadius: 25,
-  }}
->
-  <Text>S</Text>
-</Button>):
-(<Button
-onPress={() => onClick("6")}
-style={{
-  height: 50,
-  width: 50,
-  backgroundColor: "#75BAB4",
-  borderRadius: 25,
-}}
->
-<Text>S</Text>
-</Button>)
-}
-
+        ></FlatList>
       </Header>
       <Content>
         <List>{medicationList}</List>
@@ -263,3 +118,10 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(DosesList);
+
+const styles = StyleSheet.create({
+  text: {
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
+});

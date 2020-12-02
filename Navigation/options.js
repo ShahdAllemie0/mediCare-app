@@ -17,9 +17,9 @@ export const stackScreenOptions = {
 export const tabBarOptions = {
   showLabel: false,
   activeTintColor: "#ffffff",
-  inactiveTintColor: "#ffffff",
+  inactiveTintColor: "#2a7c6c",
   style: {
-    backgroundColor: "#2a7c6c",
+    backgroundColor: "#75BAB4",
   },
 };
 

@@ -45,21 +45,18 @@ const UserConditions = ({
     <>
     <View style={styles.authContainer}>
     <View style={{width:400}}>
-      <Text style={styles.authTitle}>Your Medical Conditions
-      <Button
-        block
-        style={{
-          backgroundColor:"#ffffff",
-        }}
-        onPress={() => navigation.navigate(CONDITIONS)}
-      >
-        <Icon name='ios-create' style={{fontSize: 30, color:"#2a7c6c"}} />
-      </Button></Text>
+      <Text style={styles.authTitle} onPress={() => navigation.navigate(CONDITIONS)}>{`Your Medical Conditions \t\t`}
+        <Icon name='ios-create' style={{fontSize: 30, color:"#2a7c6c"}} onPress={() => navigation.navigate(CONDITIONS)}/>
+      </Text>
       {userConditionsList}
     </View>
+    <View style={{borderTopWidth:0.5, borderColor:"#cce8e1", width:500, marginTop:30}}>
+    <Text style={styles.authTitle}>Your Medication's History</Text>
     </View>
-      <Text style={styles.authTitle}>Your Medication's History</Text>
-      <History />
+
+    </View>
+    <History />
+
 
 
 

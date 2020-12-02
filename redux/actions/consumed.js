@@ -6,7 +6,6 @@ import { fetchPatientMedications } from "./medications";
 export const setConsumed = (dose) => async (dispatch) => {
   try {
     const res = await instance.post("dose/consume/", dose);
-    // Alert.alert("Braaavooooo!!!");
 
     dispatch(fetchPatientMedications());
     dispatch(fetchUserConditions());

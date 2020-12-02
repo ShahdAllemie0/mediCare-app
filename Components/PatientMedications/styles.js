@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
   },
   authTextInput: {
     alignSelf: "stretch",
-    textAlign: "left",
+    textAlign: "center",
+    fontSize:15,
     height: 40,
     marginBottom: 30,
     color: "#2a7c6c",

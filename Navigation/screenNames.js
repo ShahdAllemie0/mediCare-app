@@ -23,6 +23,6 @@ export const HISTORY = "History";
 // Calander
 export const CALENDAR = "Calendar";
 export const DOSE = "Dose";
-export const TRACK = "Dose Track";
+export const TRACK = "Track Dose";
 
 export const LANDING = "Landing Page";
